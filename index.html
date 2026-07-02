@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odin Construction</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #3B8FCC; --grey: #a0a09c; --border: #2a2a28; --bg: #131312; --white: #e8e5e0; }
+
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--white); }
+
+    .rule { width: 100%; height: 1px; background: var(--border); }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 60px;
+      height: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-mark {
+      width: 13px;
+      height: 13px;
+      background: var(--blue);
+      flex-shrink: 0;
+      position: relative;
+      top: -1px;
+    }
+    .logo-wordmark {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      white-space: nowrap;
+    }
+    .nav-right { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 24px; flex-wrap: nowrap; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.06em; color: #a0a09c !important; font-weight: 400; text-decoration: none !important; white-space: nowrap; }
+    .nav-links a:hover { color: #e8e5e0 !important; }
+    .lang { display: flex; gap: 10px; padding-left: 28px; border-left: 1px solid var(--border); }
+    .lang span { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #a0a09c !important; cursor: pointer; }
+    .lang span.active { color: #e8e5e0 !important; }
+    .footer-linkedin { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #a0a09c !important; display: flex; align-items: center; gap: 8px; text-decoration: none !important; }
+    .footer-linkedin:hover { color: #e8e5e0 !important; }
+
+    /* HERO */
+    .hero { padding: 80px 60px 76px; }
+    .hero-headline { font-size: 46px; font-weight: 500; color: var(--white); line-height: 1.06; letter-spacing: -0.03em; max-width: 680px; }
+    .hero-sub { margin-top: 24px; font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.65; max-width: 440px; }
+    .hero-cta { margin-top: 48px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); cursor: pointer; }
+
+    /* SECTIONS */
+    .section { padding: 60px 60px; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* SERVICES */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+    }
+    .pillar { padding: 0 48px; }
+    .pillar:first-child { padding-left: 0; }
+    .pillar:last-child { padding-right: 0; }
+    .pillar:not(:last-child) { border-right: 1px solid var(--border); }
+    .pillar-title { font-size: 14px; font-weight: 500; color: var(--white); line-height: 1.4; margin-bottom: 14px; }
+    .pillar-desc { font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.65; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+    .about-text { font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.75; max-width: 640px; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--border); }
+    .project-card { background: var(--bg); }
+    .project-photo {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #1c1c1a;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel { display: flex; width: 100%; height: 100%; transition: transform 0.35s ease; will-change: transform; }
+    .carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1c1c1a;
+    }
+    .carousel-slide span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #2e2e2c; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.2s;
+      line-height: 0;
+    }
+    .project-photo:hover .carousel-btn { opacity: 1; }
+    .carousel-btn svg { width: 18px; height: 18px; stroke: var(--white); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 2;
+    }
+    .carousel-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      padding: 0;
+    }
+    .carousel-dot.active { background: var(--white); }
+    .project-info { padding: 18px 24px 24px; }
+    .project-name { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+    .project-meta { font-size: 14px; font-weight: 400; color: var(--grey); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 100px; align-items: start; }
+    .contact-intro { font-size: 14px; font-weight: 400; color: var(--white); line-height: 1.65; margin-bottom: 12px; }
+    .contact-note { font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.65; margin-bottom: 32px; }
+    .contact-details { display: flex; flex-direction: column; gap: 16px; }
+    .contact-detail strong { display: block; font-size: 10px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin-bottom: 4px; }
+    .contact-detail span { font-size: 14px; font-weight: 400; color: var(--white); }
+
+    .form { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+    .form-field { display: flex; flex-direction: column; gap: 7px; }
+    .form-field label { font-size: 10px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); }
+    .form-field input,
+    .form-field textarea {
+      background: #1c1c1a;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      padding: 12px 14px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--white);
+      outline: none;
+      width: 100%;
+      resize: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: #3a3a38; }
+    .form-field textarea { height: 110px; }
+    .form-btn {
+      margin-top: 4px;
+      display: inline-block;
+      border: 1px solid var(--border);
+      padding: 13px 28px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      cursor: pointer;
+      background: none;
+      align-self: flex-start;
+      border-radius: 0;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* FOOTER */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-left { display: flex; align-items: center; gap: 24px; }
+    .footer-copy { font-size: 12px; font-weight: 400; color: var(--grey); }
+    .footer-right { display: flex; align-items: center; gap: 24px; }
+    .footer-cert { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); border: 1px solid var(--border); padding: 5px 10px; }
+    .footer-badge { border: 1px solid var(--border); padding: 5px 10px; display: flex; flex-direction: column; gap: 1px; }
+    .footer-badge-num { font-size: 15px; font-weight: 500; color: var(--white); letter-spacing: -0.01em; }
+    .footer-badge-sub { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); }
+    .footer-linkedin svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px;
+        gap: 20px;
+        z-index: 100;
+      }
+      .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+      .hamburger span { display: block; width: 20px; height: 1px; background: var(--grey); }
+      .lang { padding-left: 16px; }
+      .hero { padding: 48px 24px 52px; }
+      .hero-headline { font-size: 34px; }
+      .section { padding: 40px 24px; }
+      .form-field input, .form-field textarea { font-size: 16px; }
+      .section-label { margin-bottom: 16px; }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar { padding: 28px 0 !important; border-right: none !important; border-bottom: 1px solid var(--border); }
+      .pillar:last-child { border-bottom: none; padding-bottom: 0 !important; }
+      .about-grid { grid-template-columns: 1fr; gap: 20px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    @media (min-width: 769px) and (max-width: 960px) {
+      .nav { padding: 0 32px; }
+      .hamburger { display: none; }
+      .hero { padding: 56px 32px 60px; }
+      .hero-headline { font-size: 34px; }
+      .section { padding: 48px 32px; }
+      .section-label { margin-bottom: 20px; }
+      .pillars { grid-template-columns: 1fr; }
+      .pillar { padding: 28px 0 !important; border-right: none !important; border-bottom: 1px solid var(--border); }
+      .pillar:last-child { border-bottom: none; padding-bottom: 0 !important; }
+      .about-grid { grid-template-columns: 1fr; gap: 20px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .footer { padding: 16px 32px; flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    @media (min-width: 961px) and (max-width: 1200px) {
+      .nav { padding: 0 40px; }
+      .hamburger { display: none; }
+      .hero { padding: 64px 40px 72px; }
+      .hero-headline { font-size: 40px; }
+      .section { padding: 52px 40px; }
+      .pillar { padding: 0 36px; }
+      .footer { padding: 18px 40px; }
+      .contact-grid { gap: 60px; }
+    }
+
+    @media (min-width: 1201px) {
+      .hamburger { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      <div class="logo-wordmark">Odin Construction</div>
+    </div>
+    <div class="nav-right">
+      <div class="nav-links" id="nav-links">
+        <a href="#services" data-t="navServices" style="color:#a0a09c!important;text-decoration:none!important;">Services</a>
+        <a href="#about" data-t="navAbout" style="color:#a0a09c!important;text-decoration:none!important;">About</a>
+        <a href="#projects" data-t="navProjects" style="color:#a0a09c!important;text-decoration:none!important;">Projects</a>
+        <a href="#contact" data-t="navContact" style="color:#a0a09c!important;text-decoration:none!important;">Contact</a>
+      </div>
+      <div class="lang">
+        <span class="active" data-lang="en">EN</span>
+        <span data-lang="pt">PT</span>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-headline" data-t="heroHeadline">We build and maintain<br>what people depend on</div>
+    <div class="hero-sub" data-t="heroSub">Construction and engineering based in Lisbon, working across Portugal and Europe.</div>
+    <a href="#contact" class="hero-cta" data-t="heroCta" style="color:#3B8FCC!important;text-decoration:none!important;">Get in touch →</a>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="section" id="services">
+    <div class="section-label" data-t="labelServices">Services</div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-title" data-t="pillar1Title">Building Construction<br>and Renovation</div>
+        <div class="pillar-desc" data-t="pillar1Desc">New builds, refurbishments, and fit-outs for residential and commercial properties.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title" data-t="pillar2Title">Property Management<br>and Maintenance</div>
+        <div class="pillar-desc" data-t="pillar2Desc">Day-to-day upkeep, electrical works, plumbing, repairs, and servicing of residential buildings and facilities.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-title" data-t="pillar3Title">Civil and Public<br>Infrastructure Works</div>
+        <div class="pillar-desc" data-t="pillar3Desc">Road works, utility installations, drainage, and public infrastructure projects.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="section-label" style="margin-bottom: 0;" data-t="labelAbout">About</div>
+      <div class="about-text" data-t="aboutText">Odin Construction is a Portuguese construction company based in Lisbon. Our team's expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.</div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="section" id="projects">
+    <div class="section-label" data-t="labelProjects">Selected Projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-photo" data-carousel>
+          <div class="carousel">
+            <div class="carousel-slide"><span>Photo 1</span></div>
+            <div class="carousel-slide"><span>Photo 2</span></div>
+            <div class="carousel-slide"><span>Photo 3</span></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-name">Project Name</div>
+          <div class="project-meta">Type · Location · Year</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-photo" data-carousel>
+          <div class="carousel">
+            <div class="carousel-slide"><img src="https://i.ibb.co/YBxVmbYd/img1.jpg" alt="Modular Agricultural Units interior" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/sSF9wVt/img2.jpg" alt="Modular Agricultural Units plumbing" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/HpC7b1V0/img3.jpg" alt="Modular Agricultural Units electrical" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/Q3VNScTB/img4.jpg" alt="Modular Agricultural Units water systems" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/23RX3Cp3/img0.jpg" alt="Modular Agricultural Units exterior" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-name" data-t="project2Name">Modular Agricultural Units</div>
+          <div class="project-meta" data-t="project2Meta">Industrial Construction · Germany · 2026</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-photo" data-carousel>
+          <div class="carousel">
+            <div class="carousel-slide"><img src="https://i.ibb.co/N6Vp7DHn/1.jpg" alt="District Heating Pipeline 1" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/RG1WV8gX/2.jpg" alt="District Heating Pipeline 2" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/RTmrnbbf/3.jpg" alt="District Heating Pipeline 3" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/VY5kTGvS/4.jpg" alt="District Heating Pipeline 4" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/jZsNqFWN/5.jpg" alt="District Heating Pipeline 5" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/vCRjL4hg/6.jpg" alt="District Heating Pipeline 6" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-name" data-t="project3Name">District Heating Pipeline</div>
+          <div class="project-meta" data-t="project3Meta">Utility Networks · Latvia · 2024</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-photo" data-carousel>
+          <div class="carousel">
+            <div class="carousel-slide"><img src="https://i.ibb.co/m5QvtrsZ/8.jpg" alt="Self-Service Car Wash 1" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/Cs96G6Tc/9.jpg" alt="Self-Service Car Wash 2" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/KjK6gb6d/10.jpg" alt="Self-Service Car Wash 3" /></div>
+            <div class="carousel-slide"><img src="https://i.ibb.co/WWmMwRQk/11.jpg" alt="Self-Service Car Wash 4" /></div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-info">
+          <div class="project-name" data-t="project4Name">Self-Service Car Wash</div>
+          <div class="project-meta" data-t="project4Meta">Commercial Construction · Latvia · 2025</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="section" id="contact">
+    <div class="section-label" data-t="labelContact">Contact</div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-intro" data-t="contactIntro">Our company accepts a wide range of requests, from large-scale projects to smaller works. Contact us to get a quote and a timeline.</div>
+        <div class="contact-note"><span data-t="contactNote">We respond within one business day.</span> <span data-t="contactUrgent">For urgent works, call us directly.</span></div>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <strong data-t="contactPhoneLabel">Phone & WhatsApp</strong>
+            <span><a href="tel:+351913570069" style="color:#e8e5e0!important;text-decoration:none!important;">+351 913 570 069</a></span>
+          </div>
+          <div class="contact-detail">
+            <strong data-t="contactEmailLabel">Email</strong>
+            <span><a href="mailto:hi@odinconstruction.co" style="color:#e8e5e0!important;text-decoration:none!important;">hi@odinconstruction.co</a></span>
+          </div>
+        </div>
+      </div>
+      <div id="contact-form-wrap">
+        <form id="contact-form" onsubmit="submitForm(event)">
+          <input type="hidden" name="access_key" value="93e63b60-0a9e-4133-9324-ed5bc734fd39" />
+          <input type="hidden" name="subject" value="New enquiry from odinconstruction.co" />
+          <input type="hidden" name="from_name" value="Odin Construction Website" />
+          <input type="checkbox" name="botcheck" style="display:none;" />
+          <div class="form">
+            <div class="form-field">
+              <label data-t="formName">Name</label>
+              <input type="text" name="name" required />
+            </div>
+            <div class="form-field">
+              <label data-t="formEmail">Email</label>
+              <input type="email" name="email" required />
+            </div>
+            <div class="form-field">
+              <label data-t="formMessage">Message</label>
+              <textarea name="message" required></textarea>
+            </div>
+            <button type="submit" class="form-btn" id="form-submit" data-t="formBtn">Send message →</button>
+          </div>
+        </form>
+        <div id="form-success" style="display:none;padding:32px 0;">
+          <div style="font-size:14px;font-weight:500;color:#e8e5e0;margin-bottom:10px;" data-t="successTitle">Message sent.</div>
+          <div style="font-size:14px;color:#a0a09c;" data-t="successSub">We will be in touch within one business day.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-copy" data-t="footerCopy">©️ 2026 Odin Construction. All rights reserved.</div>
+    <div class="footer-right">
+      <div class="footer-badge">
+        <span class="footer-badge-num">10+</span>
+        <span class="footer-badge-sub" data-t="badge1Sub">Years in building management</span>
+      </div>
+      <div class="footer-badge">
+        <span class="footer-badge-num">500+</span>
+        <span class="footer-badge-sub" data-t="badge2Sub">Residential buildings in Europe</span>
+      </div>
+      <a href="https://www.linkedin.com/company/odin-construction" class="footer-linkedin" style="color:#a0a09c!important;text-decoration:none!important;">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    var translations = {
+      en: {
+        navServices: 'Services',
+        navAbout: 'About',
+        navProjects: 'Projects',
+        navContact: 'Contact',
+        heroHeadline: 'We build and maintain<br>what people depend on',
+        heroSub: 'Construction and engineering based in Lisbon, working across Portugal and Europe.',
+        heroCta: 'Get in touch →',
+        labelServices: 'Services',
+        pillar1Title: 'Building Construction<br>and Renovation',
+        pillar1Desc: 'New builds, refurbishments, and fit-outs for residential and commercial properties.',
+        pillar2Title: 'Property Management<br>and Maintenance',
+        pillar2Desc: 'Day-to-day upkeep, electrical works, plumbing, repairs, and servicing of residential buildings and facilities.',
+        pillar3Title: 'Civil and Public<br>Infrastructure Works',
+        pillar3Desc: 'Road works, utility installations, drainage, and public infrastructure projects.',
+        labelAbout: 'About',
+        aboutText: 'Odin Construction is a Portuguese construction company based in Lisbon. Our team\'s expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.',
+        labelProjects: 'Selected Projects',
+        labelContact: 'Contact',
+        contactIntro: 'Our company accepts a wide range of requests, from large-scale projects to smaller works. Contact us to get a quote and a timeline.',
+        contactNote: 'We respond within one business day.',
+        contactUrgent: 'For urgent works, call us directly.',
+        contactPhoneLabel: 'Phone & WhatsApp',
+        contactEmailLabel: 'Email',
+        formName: 'Name',
+        formEmail: 'Email',
+        formMessage: 'Message',
+        formBtn: 'Send message →',
+        successTitle: 'Message sent.',
+        successSub: 'We will be in touch within one business day.',
+        project2Name: 'Modular Agricultural Units',
+        project2Meta: 'Industrial Construction · Germany · 2026',
+        project3Name: 'District Heating Pipeline',
+        project3Meta: 'Utility Networks · Latvia · 2024',
+        project4Name: 'Self-Service Car Wash',
+        project4Meta: 'Commercial Construction · Latvia · 2025',
+        footerCopy: '©️ 2026 Odin Construction. All rights reserved.',
+        footerLinkedin: 'LinkedIn',
+        badge1Sub: 'Years in building management',
+        badge2Sub: 'Residential buildings in Europe'
+      },
+      pt: {
+        navServices: 'Serviços',
+        navAbout: 'Sobre',
+        navProjects: 'Projetos',
+        navContact: 'Contacto',
+        heroHeadline: 'Construímos e mantemos<br>o que as pessoas dependem',
+        heroSub: 'Construção e engenharia com base em Lisboa, a trabalhar em Portugal e na Europa.',
+        heroCta: 'Fale connosco →',
+        labelServices: 'Serviços',
+        pillar1Title: 'Construção e Renovação<br>de Edifícios',
+        pillar1Desc: 'Obras novas, remodelações e acabamentos para imóveis residenciais e comerciais.',
+        pillar2Title: 'Gestão e Manutenção<br>de Imóveis',
+        pillar2Desc: 'Manutenção quotidiana, instalações elétricas, canalizações, reparações e serviços em edifícios residenciais.',
+        pillar3Title: 'Obras de Infraestrutura<br>Civil e Pública',
+        pillar3Desc: 'Obras rodoviárias, instalação de infraestruturas, drenagem e projetos de obras públicas.',
+        labelAbout: 'Sobre',
+        aboutText: 'A Odin Construction é uma empresa portuguesa de construção com sede em Lisboa. A experiência da nossa equipa abrange engenharia, instalações elétricas, canalizações e gestão de obras, com mais de dez anos de experiência na Europa. Trabalhamos com clientes privados, promotores e entidades públicas que valorizam a precisão e a fiabilidade.',
+        labelProjects: 'Projetos Selecionados',
+        labelContact: 'Contacto',
+        contactIntro: 'A nossa empresa aceita uma vasta gama de pedidos, desde projetos de grande escala a obras mais pequenas. Contacte-nos para obter um orçamento e um prazo.',
+        contactNote: 'Respondemos no prazo de um dia útil.',
+        contactUrgent: 'Para trabalhos urgentes, contacte-nos diretamente por telefone.',
+        contactPhoneLabel: 'Telefone & WhatsApp',
+        contactEmailLabel: 'Email',
+        formName: 'Nome',
+        formEmail: 'Email',
+        formMessage: 'Mensagem',
+        formBtn: 'Enviar mensagem →',
+        successTitle: 'Mensagem enviada.',
+        successSub: 'Entraremos em contacto no prazo de um dia útil.',
+        project2Name: 'Unidades Agrícolas Modulares',
+        project2Meta: 'Construção Industrial · Alemanha · 2026',
+        project3Name: 'Rede de Aquecimento Urbano',
+        project3Meta: 'Redes de Utilidade Pública · Letónia · 2024',
+        project4Name: 'Lavagem Automóvel Self-Service',
+        project4Meta: 'Construção Comercial · Letónia · 2025',
+        footerCopy: '©️ 2026 Odin Construction. Todos os direitos reservados.',
+        footerLinkedin: 'LinkedIn',
+        badge1Sub: 'Anos em gestão de edifícios',
+        badge2Sub: 'Edifícios residenciais na Europa'
+      }
+    };
+
+    var currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      var t = translations[lang];
+
+      document.querySelectorAll('.lang span').forEach(function(el) {
+        el.classList.toggle('active', el.dataset.lang === lang);
+      });
+
+      document.querySelector('[data-t="navServices"]').textContent = t.navServices;
+      document.querySelector('[data-t="navAbout"]').textContent = t.navAbout;
+      document.querySelector('[data-t="navProjects"]').textContent = t.navProjects;
+      document.querySelector('[data-t="navContact"]').textContent = t.navContact;
+      document.querySelector('[data-t="heroHeadline"]').innerHTML = t.heroHeadline;
+      document.querySelector('[data-t="heroSub"]').textContent = t.heroSub;
+      document.querySelector('[data-t="heroCta"]').textContent = t.heroCta;
+      document.querySelector('[data-t="labelServices"]').lastChild.textContent = t.labelServices;
+      document.querySelector('[data-t="pillar1Title"]').innerHTML = t.pillar1Title;
+      document.querySelector('[data-t="pillar1Desc"]').textContent = t.pillar1Desc;
+      document.querySelector('[data-t="pillar2Title"]').innerHTML = t.pillar2Title;
+      document.querySelector('[data-t="pillar2Desc"]').textContent = t.pillar2Desc;
+      document.querySelector('[data-t="pillar3Title"]').innerHTML = t.pillar3Title;
+      document.querySelector('[data-t="pillar3Desc"]').textContent = t.pillar3Desc;
+      document.querySelector('[data-t="labelAbout"]').lastChild.textContent = t.labelAbout;
+      document.querySelector('[data-t="aboutText"]').textContent = t.aboutText;
+      document.querySelector('[data-t="labelProjects"]').lastChild.textContent = t.labelProjects;
+      document.querySelector('[data-t="labelContact"]').lastChild.textContent = t.labelContact;
+      document.querySelector('[data-t="contactIntro"]').textContent = t.contactIntro;
+      document.querySelector('[data-t="contactNote"]').textContent = t.contactNote;
+      document.querySelector('[data-t="contactUrgent"]').textContent = t.contactUrgent;
+      document.querySelector('[data-t="contactPhoneLabel"]').textContent = t.contactPhoneLabel;
+      document.querySelector('[data-t="contactEmailLabel"]').textContent = t.contactEmailLabel;
+      document.querySelector('[data-t="formName"]').textContent = t.formName;
+      document.querySelector('[data-t="formEmail"]').textContent = t.formEmail;
+      document.querySelector('[data-t="formMessage"]').textContent = t.formMessage;
+      document.querySelector('[data-t="formBtn"]').textContent = t.formBtn;
+      var st = document.querySelector('[data-t="successTitle"]');
+      var ss = document.querySelector('[data-t="successSub"]');
+      if (st) st.textContent = t.successTitle;
+      if (ss) ss.textContent = t.successSub;
+      document.querySelector('[data-t="footerCopy"]').textContent = t.footerCopy;
+      document.querySelector('[data-t="project2Name"]').textContent = t.project2Name;
+      document.querySelector('[data-t="project2Meta"]').textContent = t.project2Meta;
+      document.querySelector('[data-t="project3Name"]').textContent = t.project3Name;
+      document.querySelector('[data-t="project3Meta"]').textContent = t.project3Meta;
+      document.querySelector('[data-t="project4Name"]').textContent = t.project4Name;
+      document.querySelector('[data-t="project4Meta"]').textContent = t.project4Meta;
+      document.querySelector('[data-t="badge1Sub"]').textContent = t.badge1Sub;
+      document.querySelector('[data-t="badge2Sub"]').textContent = t.badge2Sub;
+
+      document.documentElement.lang = lang;
+    }
+
+    document.querySelectorAll('.lang span').forEach(function(el) {
+      el.addEventListener('click', function() { setLang(el.dataset.lang); });
+    });
+
+    function submitForm(e) {
+      e.preventDefault();
+      var form = document.getElementById('contact-form');
+      var btn = document.getElementById('form-submit');
+      var lang = document.documentElement.lang || 'en';
+
+      btn.disabled = true;
+      btn.textContent = lang === 'pt' ? 'A enviar...' : 'Sending...';
+
+      var data = new FormData(form);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(res) {
+        if (res.success) {
+          document.getElementById('contact-form').style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = lang === 'pt' ? 'Enviar mensagem →' : 'Send message →';
+          alert(lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.');
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = lang === 'pt' ? 'Enviar mensagem →' : 'Send message →';
+        alert(lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.');
+      });
+    }
+
+    document.querySelectorAll('[data-carousel]').forEach(function(el) {
+      var carousel = el.querySelector('.carousel');
+      var slides = el.querySelectorAll('.carousel-slide');
+      var dotsContainer = el.querySelector('.carousel-dots');
+      var total = slides.length;
+      var current = 0;
+
+      if (total <= 1) {
+        el.querySelector('.carousel-btn.prev').style.display = 'none';
+        el.querySelector('.carousel-btn.next').style.display = 'none';
+        return;
+      }
+
+      slides.forEach(function(_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', function() { goTo(i); });
+        dotsContainer.appendChild(dot);
+      });
+
+      function goTo(n) {
+        current = (n + total) % total;
+        carousel.style.transform = 'translateX(-' + (current * 100) + '%)';
+        el.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      el.querySelector('.carousel-btn.prev').addEventListener('click', function() { goTo(current - 1); });
+      el.querySelector('.carousel-btn.next').addEventListener('click', function() { goTo(current + 1); });
+
+      var touchStartX = 0;
+      var touchEndX = 0;
+
+      el.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      el.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        var diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          goTo(diff > 0 ? current + 1 : current - 1);
+        }
+      }, { passive: true });
+    });
+  </script>
+
+</body>
+</html>
