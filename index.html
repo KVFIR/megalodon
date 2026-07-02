@@ -16,6 +16,9 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Odin Construction — Construction &amp; Engineering" />
   <meta name="twitter:description" content="Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -69,6 +72,9 @@
 
       --max-width: 1200px;
 
+      --font-heading: 'Lexend', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Source Sans 3', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
       --fs-display: clamp(2rem, 4vw, 2.875rem);
       --fs-h2: clamp(1.5rem, 2.5vw, 1.75rem);
       --fs-h3: clamp(1.125rem, 1.5vw, 1.25rem);
@@ -81,16 +87,49 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: var(--font-body);
       background: var(--bg);
       color: var(--text);
       font-size: var(--fs-body);
       line-height: 1.625;
     }
 
+    h1, h2, h3, h4, h5, h6,
+    button,
+    .btn,
+    .logo-wordmark,
+    .nav-cta {
+      font-family: var(--font-heading);
+    }
+
+    .trust-item strong,
+    .footer-badge-num {
+      font-family: var(--font-heading);
+    }
+
     :focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--space-4);
+      z-index: 1000;
+      background: var(--accent);
+      color: var(--bg);
+      padding: var(--space-3) var(--space-5);
+      font-family: var(--font-heading);
+      font-size: var(--fs-small);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: top 0.15s ease;
+    }
+
+    .skip-link:focus {
+      top: var(--space-4);
     }
 
     .container {
@@ -191,7 +230,7 @@
       padding: var(--space-2);
       min-width: 24px;
       min-height: 24px;
-      font-family: inherit;
+      font-family: var(--font-heading);
     }
 
     .lang button.active { color: var(--text); }
@@ -280,6 +319,7 @@
       background: var(--accent-strong);
       border-color: var(--accent-strong);
       color: var(--bg);
+      transform: translateY(-1px);
     }
 
     .btn-secondary {
@@ -288,7 +328,12 @@
       border-color: var(--border);
     }
 
-    .btn-secondary:hover { border-color: var(--muted); }
+    .btn-secondary:hover {
+      border-color: var(--muted);
+      transform: translateY(-1px);
+    }
+
+    .btn:active { transform: translateY(0); }
 
     .trust-list {
       display: flex;
@@ -407,7 +452,7 @@
       background: var(--border);
     }
 
-    .project-card { background: var(--bg); }
+    .project-card { background: var(--bg); transition: background 0.2s ease; }
 
     .project-cover {
       display: block;
@@ -427,7 +472,10 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.3s ease;
     }
+
+    .project-cover:hover img { transform: scale(1.03); }
 
     .project-cover-placeholder {
       width: 100%;
@@ -864,6 +912,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link" data-t="skipLink">Skip to main content</a>
+
   <header>
     <nav class="nav" aria-label="Main navigation">
       <a href="#" class="logo" aria-label="Odin Construction home">
@@ -889,7 +939,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <p class="hero-eyebrow" data-t="heroEyebrow">Lisbon-based contractor</p>
@@ -912,11 +962,11 @@
       <div class="container">
         <div class="trust-strip-inner">
           <div class="trust-item">
-            <strong data-t="trustStrip1Title">10+</strong>
+            <strong data-t="trustStrip1Title" data-counter="true">10+</strong>
             <span data-t="trustStrip1Sub">Years of hands-on experience in Europe</span>
           </div>
           <div class="trust-item">
-            <strong data-t="trustStrip2Title">500+</strong>
+            <strong data-t="trustStrip2Title" data-counter="true">500+</strong>
             <span data-t="trustStrip2Sub">Residential buildings serviced across Europe</span>
           </div>
           <div class="trust-item">
@@ -924,7 +974,7 @@
             <span data-t="trustStrip3Sub">Based in Portugal, delivering across the EU</span>
           </div>
           <div class="trust-item">
-            <strong data-t="trustStrip4Title">1 day</strong>
+            <strong data-t="trustStrip4Title" data-counter="true">1 day</strong>
             <span data-t="trustStrip4Sub">Typical response time for enquiries</span>
           </div>
         </div>
@@ -1073,7 +1123,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary form-btn" id="form-submit" data-t="formBtn" data-event="form_submit">Send request</button>
                 <p class="privacy-note" data-t="privacyNote">We use your information only to respond to your enquiry.</p>
-                <div class="form-status" id="form-status" aria-live="polite"></div>
+                <div class="form-status" id="form-status" role="alert" aria-live="assertive"></div>
               </div>
             </form>
             <div id="form-success" class="form-success" hidden>
@@ -1093,11 +1143,11 @@
     </div>
     <div class="footer-right">
       <div class="footer-badge">
-        <span class="footer-badge-num">10+</span>
+        <span class="footer-badge-num" data-counter="true">10+</span>
         <span class="footer-badge-sub" data-t="badge1Sub">Years in building management</span>
       </div>
       <div class="footer-badge">
-        <span class="footer-badge-num">500+</span>
+        <span class="footer-badge-num" data-counter="true">500+</span>
         <span class="footer-badge-sub" data-t="badge2Sub">Residential buildings in Europe</span>
       </div>
       <a href="https://www.linkedin.com/company/odin-construction" class="footer-linkedin" rel="noopener noreferrer">
@@ -1124,6 +1174,7 @@
   <script>
     var translations = {
       en: {
+        skipLink: 'Skip to main content',
         navServices: 'Services',
         navAbout: 'About',
         navProjects: 'Projects',
@@ -1195,6 +1246,7 @@
         modalClose: 'Close'
       },
       pt: {
+        skipLink: 'Ir para o conte\u00fado principal',
         navServices: 'Servi\u00e7os',
         navAbout: 'Sobre',
         navProjects: 'Projetos',
@@ -1449,6 +1501,46 @@
       if (e.key === 'ArrowLeft') document.getElementById('modal-prev').click();
       if (e.key === 'ArrowRight') document.getElementById('modal-next').click();
     });
+
+    function animateCounter(el) {
+      var text = el.textContent.trim();
+      var match = text.match(/^(\d+)(.*)$/);
+      if (!match) return;
+      var target = parseInt(match[1], 10);
+      var suffix = match[2];
+      var duration = 900;
+      var startTime = null;
+
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      document.querySelectorAll('[data-counter]').forEach(function(el) {
+        counterObserver.observe(el);
+      });
+    }
 
     initLang();
   </script>
