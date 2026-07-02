@@ -3,82 +3,373 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Odin Construction</title>
+  <title>Odin Construction — Construction &amp; Engineering | Lisbon, Portugal</title>
+  <meta name="description" content="Construction and engineering for buildings and infrastructure. Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects. Based in Lisbon." />
+  <link rel="canonical" href="https://odinconstruction.co/" />
+  <link rel="alternate" hreflang="en" href="https://odinconstruction.co/?lang=en" />
+  <link rel="alternate" hreflang="pt-PT" href="https://odinconstruction.co/?lang=pt" />
+  <link rel="alternate" hreflang="x-default" href="https://odinconstruction.co/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Odin Construction — Construction &amp; Engineering" />
+  <meta property="og:description" content="Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects. Based in Lisbon." />
+  <meta property="og:url" content="https://odinconstruction.co/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Odin Construction — Construction &amp; Engineering" />
+  <meta name="twitter:description" content="Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Odin Construction",
+    "url": "https://odinconstruction.co",
+    "logo": "https://odinconstruction.co/logo.png",
+    "email": "hi@odinconstruction.co",
+    "telephone": "+351913570069",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lisbon",
+      "addressCountry": "PT"
+    },
+    "areaServed": ["PT", "EU"],
+    "sameAs": ["https://www.linkedin.com/company/odin-construction"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+351-913-570-069",
+      "contactType": "sales",
+      "email": "hi@odinconstruction.co",
+      "availableLanguage": ["English", "Portuguese"]
+    }
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --blue: #3B8FCC; --grey: #a0a09c; --border: #2a2a28; --bg: #131312; --white: #e8e5e0; }
 
-    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--white); }
+    :root {
+      --bg: #111111;
+      --surface: #171717;
+      --surface-2: #1f1f1f;
+      --text: #f2f0eb;
+      --muted: #b6b1a8;
+      --accent: #4d9ad3;
+      --accent-strong: #76b8e8;
+      --border: #2b2b2b;
+      --success: #5baa6c;
+      --error: #d06b6b;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+
+      --max-width: 1200px;
+
+      --fs-display: clamp(2rem, 4vw, 2.875rem);
+      --fs-h2: clamp(1.5rem, 2.5vw, 1.75rem);
+      --fs-h3: clamp(1.125rem, 1.5vw, 1.25rem);
+      --fs-body: 1rem;
+      --fs-small: 0.875rem;
+      --fs-label: 0.75rem;
+      --fs-button: 0.875rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: var(--fs-body);
+      line-height: 1.625;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
 
     .rule { width: 100%; height: 1px; background: var(--border); }
 
     /* NAV */
     .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 60px;
+      padding: 0 var(--space-6);
       height: 56px;
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
     }
+
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
+      text-decoration: none;
+      color: var(--text);
     }
+
     .logo-mark {
       width: 13px;
       height: 13px;
-      background: var(--blue);
+      background: var(--accent);
       flex-shrink: 0;
-      position: relative;
-      top: -1px;
     }
+
     .logo-wordmark {
-      font-size: 13px;
+      font-size: var(--fs-label);
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--white);
       white-space: nowrap;
     }
-    .nav-right { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
-    .nav-links { display: flex; gap: 24px; flex-wrap: nowrap; }
-    .nav-links a { font-size: 11px; letter-spacing: 0.06em; color: #a0a09c !important; font-weight: 400; text-decoration: none !important; white-space: nowrap; }
-    .nav-links a:hover { color: #e8e5e0 !important; }
-    .lang { display: flex; gap: 10px; padding-left: 28px; border-left: 1px solid var(--border); }
-    .lang span { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #a0a09c !important; cursor: pointer; }
-    .lang span.active { color: #e8e5e0 !important; }
-    .footer-linkedin { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #a0a09c !important; display: flex; align-items: center; gap: 8px; text-decoration: none !important; }
-    .footer-linkedin:hover { color: #e8e5e0 !important; }
+
+    .nav-right { display: flex; align-items: center; gap: var(--space-5); flex-shrink: 0; }
+
+    .nav-links { display: flex; gap: var(--space-5); flex-wrap: nowrap; }
+
+    .nav-links a {
+      font-size: var(--fs-label);
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 400;
+      text-decoration: none;
+      white-space: nowrap;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      font-size: var(--fs-label);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--border);
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-cta:hover { border-color: var(--accent); color: var(--accent-strong); }
+
+    .lang {
+      display: flex;
+      gap: 10px;
+      padding-left: var(--space-5);
+      border-left: 1px solid var(--border);
+    }
+
+    .lang button {
+      font-size: var(--fs-label);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-2);
+      min-width: 24px;
+      min-height: 24px;
+      font-family: inherit;
+    }
+
+    .lang button.active { color: var(--text); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: var(--space-2);
+      background: none;
+      border: none;
+      min-width: 36px;
+      min-height: 36px;
+      justify-content: center;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--muted);
+    }
 
     /* HERO */
-    .hero { padding: 80px 60px 76px; }
-    .hero-headline { font-size: 46px; font-weight: 500; color: var(--white); line-height: 1.06; letter-spacing: -0.03em; max-width: 680px; }
-    .hero-sub { margin-top: 24px; font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.65; max-width: 440px; }
-    .hero-cta { margin-top: 48px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); cursor: pointer; }
+    .hero {
+      padding: var(--space-8) 0 var(--space-7);
+    }
+
+    .hero-eyebrow {
+      font-size: var(--fs-label);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-headline {
+      font-size: var(--fs-display);
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      max-width: 720px;
+    }
+
+    .hero-sub {
+      margin-top: var(--space-5);
+      font-size: var(--fs-body);
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: var(--space-3) var(--space-5);
+      font-family: inherit;
+      font-size: var(--fs-button);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-strong);
+      border-color: var(--accent-strong);
+      color: var(--bg);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover { border-color: var(--muted); }
+
+    .trust-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+      list-style: none;
+      padding: 0;
+    }
+
+    .trust-list li {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      padding: var(--space-5) 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-strip-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-5) var(--space-7);
+      justify-content: space-between;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .trust-item strong {
+      font-size: var(--fs-h3);
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .trust-item span {
+      font-size: var(--fs-small);
+      color: var(--muted);
+    }
 
     /* SECTIONS */
-    .section { padding: 60px 60px; }
+    .section { padding: var(--space-7) 0; }
 
     .section-label {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 10px;
+      font-size: var(--fs-label);
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--grey);
-      margin-bottom: 40px;
+      color: var(--muted);
+      margin-bottom: var(--space-6);
       font-weight: 400;
     }
+
     .section-label::before {
       content: '';
       display: block;
       width: 6px;
       height: 6px;
-      background: var(--blue);
+      background: var(--accent);
       flex-shrink: 0;
+    }
+
+    .section-intro {
+      font-size: var(--fs-body);
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: var(--space-6);
+      line-height: 1.65;
     }
 
     /* SERVICES */
@@ -87,151 +378,428 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0;
     }
-    .pillar { padding: 0 48px; }
+
+    .pillar { padding: 0 var(--space-6); }
+
     .pillar:first-child { padding-left: 0; }
     .pillar:last-child { padding-right: 0; }
     .pillar:not(:last-child) { border-right: 1px solid var(--border); }
-    .pillar-title { font-size: 14px; font-weight: 500; color: var(--white); line-height: 1.4; margin-bottom: 14px; }
-    .pillar-desc { font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.65; }
 
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
-    .about-text { font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.75; max-width: 640px; }
+    .pillar-title {
+      font-size: var(--fs-h3);
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: var(--space-3);
+    }
+
+    .pillar-desc {
+      font-size: var(--fs-body);
+      color: var(--muted);
+      line-height: 1.65;
+    }
 
     /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--border); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+
     .project-card { background: var(--bg); }
-    .project-photo {
+
+    .project-cover {
+      display: block;
       width: 100%;
       aspect-ratio: 16/9;
-      background: #1c1c1a;
+      background: var(--surface-2);
       position: relative;
       overflow: hidden;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
     }
-    .carousel { display: flex; width: 100%; height: 100%; transition: transform 0.35s ease; will-change: transform; }
-    .carousel-slide {
-      flex: 0 0 100%;
+
+    .project-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-cover-placeholder {
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #1c1c1a;
+      background: var(--surface-2);
+      color: var(--border);
+      font-size: var(--fs-label);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .carousel-slide span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #2e2e2c; }
-    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .carousel-btn {
+
+    .gallery-badge {
+      position: absolute;
+      bottom: var(--space-3);
+      right: var(--space-3);
+      background: rgba(17, 17, 17, 0.85);
+      color: var(--text);
+      font-size: var(--fs-label);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .project-info { padding: var(--space-4) var(--space-5) var(--space-5); }
+
+    .project-name {
+      font-size: var(--fs-body);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+
+    .project-meta {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      margin-bottom: var(--space-3);
+    }
+
+    .project-desc {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-3);
+    }
+
+    .text-link {
+      font-size: var(--fs-small);
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .text-link:hover { color: var(--accent-strong); }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-7);
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: var(--fs-body);
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .process-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .process-list li {
+      padding-left: var(--space-5);
+      position: relative;
+      font-size: var(--fs-body);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .process-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+    }
+
+    .process-list strong {
+      display: block;
+      color: var(--text);
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    .contact-intro {
+      font-size: var(--fs-body);
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: var(--space-3);
+    }
+
+    .contact-note {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: var(--space-6);
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: var(--space-4); }
+
+    .contact-detail strong {
+      display: block;
+      font-size: var(--fs-label);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: var(--space-2);
+    }
+
+    .contact-detail a {
+      font-size: var(--fs-body);
+      color: var(--text);
+      text-decoration: none;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .contact-detail a:hover { color: var(--accent); }
+
+    .form { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+
+    .form-note {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      margin-bottom: var(--space-2);
+    }
+
+    .form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+
+    .form-field label {
+      font-size: var(--fs-label);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      font-family: inherit;
+      font-size: var(--fs-body);
+      color: var(--text);
+      outline: none;
+      width: 100%;
+      resize: vertical;
+      min-height: 44px;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: var(--accent); }
+
+    .form-field textarea { min-height: 120px; }
+
+    .field-hint {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .form-btn {
+      margin-top: var(--space-2);
+      align-self: flex-start;
+    }
+
+    .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .privacy-note {
+      font-size: var(--fs-small);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .privacy-note a { color: var(--accent); }
+
+    .form-status {
+      font-size: var(--fs-small);
+      color: var(--error);
+      min-height: 1.25em;
+    }
+
+    .form-success {
+      padding: var(--space-6) 0;
+    }
+
+    .form-success-title {
+      font-size: var(--fs-body);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+
+    .form-success-sub {
+      font-size: var(--fs-body);
+      color: var(--muted);
+    }
+
+    /* GALLERY MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-5);
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      position: relative;
+      max-width: 960px;
+      width: 100%;
+    }
+
+    .modal img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: var(--fs-body);
+      cursor: pointer;
+      padding: var(--space-2);
+      min-width: 44px;
+      min-height: 44px;
+      font-family: inherit;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .modal-nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: none;
-      border: none;
+      background: rgba(17, 17, 17, 0.8);
+      border: 1px solid var(--border);
+      color: var(--text);
       cursor: pointer;
-      padding: 10px;
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.2s;
-      line-height: 0;
-    }
-    .project-photo:hover .carousel-btn { opacity: 1; }
-    .carousel-btn svg { width: 18px; height: 18px; stroke: var(--white); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-    .carousel-btn.prev { left: 8px; }
-    .carousel-btn.next { right: 8px; }
-    .carousel-dots {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
+      padding: var(--space-3);
+      min-width: 44px;
+      min-height: 44px;
       display: flex;
-      gap: 5px;
-      z-index: 2;
+      align-items: center;
+      justify-content: center;
     }
-    .carousel-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-      cursor: pointer;
-      transition: background 0.2s;
-      border: none;
-      padding: 0;
-    }
-    .carousel-dot.active { background: var(--white); }
-    .project-info { padding: 18px 24px 24px; }
-    .project-name { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
-    .project-meta { font-size: 14px; font-weight: 400; color: var(--grey); }
 
-    /* CONTACT */
-    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 100px; align-items: start; }
-    .contact-intro { font-size: 14px; font-weight: 400; color: var(--white); line-height: 1.65; margin-bottom: 12px; }
-    .contact-note { font-size: 14px; font-weight: 400; color: var(--grey); line-height: 1.65; margin-bottom: 32px; }
-    .contact-details { display: flex; flex-direction: column; gap: 16px; }
-    .contact-detail strong { display: block; font-size: 10px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin-bottom: 4px; }
-    .contact-detail span { font-size: 14px; font-weight: 400; color: var(--white); }
+    .modal-nav.prev { left: var(--space-3); }
+    .modal-nav.next { right: var(--space-3); }
 
-    .form { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-    .form-field { display: flex; flex-direction: column; gap: 7px; }
-    .form-field label { font-size: 10px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); }
-    .form-field input,
-    .form-field textarea {
-      background: #1c1c1a;
-      border: 1px solid var(--border);
-      border-radius: 0;
-      padding: 12px 14px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--white);
-      outline: none;
-      width: 100%;
-      resize: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
+    .modal-nav svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
     }
-    .form-field input:focus,
-    .form-field textarea:focus { border-color: #3a3a38; }
-    .form-field textarea { height: 110px; }
-    .form-btn {
-      margin-top: 4px;
-      display: inline-block;
-      border: 1px solid var(--border);
-      padding: 13px 28px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue);
-      cursor: pointer;
-      background: none;
-      align-self: flex-start;
-      border-radius: 0;
-      -webkit-appearance: none;
-      appearance: none;
+
+    .modal-counter {
+      text-align: center;
+      margin-top: var(--space-3);
+      font-size: var(--fs-small);
+      color: var(--muted);
     }
-    .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
     /* FOOTER */
     .footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 60px;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-6);
       border-top: 1px solid var(--border);
     }
-    .footer-left { display: flex; align-items: center; gap: 24px; }
-    .footer-copy { font-size: 12px; font-weight: 400; color: var(--grey); }
-    .footer-right { display: flex; align-items: center; gap: 24px; }
-    .footer-cert { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); border: 1px solid var(--border); padding: 5px 10px; }
-    .footer-badge { border: 1px solid var(--border); padding: 5px 10px; display: flex; flex-direction: column; gap: 1px; }
-    .footer-badge-num { font-size: 15px; font-weight: 500; color: var(--white); letter-spacing: -0.01em; }
-    .footer-badge-sub { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); }
+
+    .footer-left { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+
+    .footer-copy { font-size: var(--fs-small); color: var(--muted); }
+
+    .footer-legal {
+      font-size: var(--fs-label);
+      color: var(--muted);
+    }
+
+    .footer-right { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+
+    .footer-badge {
+      border: 1px solid var(--border);
+      padding: var(--space-2) var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      border-radius: var(--radius-sm);
+    }
+
+    .footer-badge-num {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .footer-badge-sub {
+      font-size: var(--fs-label);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .footer-linkedin {
+      font-size: var(--fs-label);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-decoration: none;
+      min-height: 24px;
+    }
+
+    .footer-linkedin:hover { color: var(--text); }
     .footer-linkedin svg { width: 16px; height: 16px; fill: currentColor; }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .nav { padding: 0 24px; }
+      .nav { padding: 0 var(--space-4); }
       .nav-links { display: none; }
       .nav-links.open {
         display: flex;
@@ -242,252 +810,287 @@
         right: 0;
         background: var(--bg);
         border-bottom: 1px solid var(--border);
-        padding: 20px 24px;
-        gap: 20px;
+        padding: var(--space-5) var(--space-4);
+        gap: var(--space-4);
         z-index: 100;
       }
-      .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-      .hamburger span { display: block; width: 20px; height: 1px; background: var(--grey); }
-      .lang { padding-left: 16px; }
-      .hero { padding: 48px 24px 52px; }
-      .hero-headline { font-size: 34px; }
-      .section { padding: 40px 24px; }
-      .form-field input, .form-field textarea { font-size: 16px; }
-      .section-label { margin-bottom: 16px; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .lang { padding-left: var(--space-4); }
+      .container { padding: 0 var(--space-4); }
+      .hero { padding: var(--space-6) 0 var(--space-5); }
+      .section { padding: var(--space-6) 0; }
       .pillars { grid-template-columns: 1fr; }
-      .pillar { padding: 28px 0 !important; border-right: none !important; border-bottom: 1px solid var(--border); }
-      .pillar:last-child { border-bottom: none; padding-bottom: 0 !important; }
-      .about-grid { grid-template-columns: 1fr; gap: 20px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .pillar {
+        padding: var(--space-5) 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border);
+      }
+      .pillar:last-child { border-bottom: none; }
+      .why-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+      .contact-grid { grid-template-columns: 1fr; gap: var(--space-6); }
       .projects-grid { grid-template-columns: 1fr; }
-      .footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+      .trust-strip-inner { flex-direction: column; gap: var(--space-4); }
+      .footer { padding: var(--space-4); flex-direction: column; align-items: flex-start; }
+      .form-field input, .form-field textarea { font-size: 16px; }
     }
 
     @media (min-width: 769px) and (max-width: 960px) {
-      .nav { padding: 0 32px; }
       .hamburger { display: none; }
-      .hero { padding: 56px 32px 60px; }
-      .hero-headline { font-size: 34px; }
-      .section { padding: 48px 32px; }
-      .section-label { margin-bottom: 20px; }
       .pillars { grid-template-columns: 1fr; }
-      .pillar { padding: 28px 0 !important; border-right: none !important; border-bottom: 1px solid var(--border); }
-      .pillar:last-child { border-bottom: none; padding-bottom: 0 !important; }
-      .about-grid { grid-template-columns: 1fr; gap: 20px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .pillar {
+        padding: var(--space-5) 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border);
+      }
+      .pillar:last-child { border-bottom: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
-      .footer { padding: 16px 32px; flex-direction: column; align-items: flex-start; gap: 16px; }
     }
 
-    @media (min-width: 961px) and (max-width: 1200px) {
-      .nav { padding: 0 40px; }
+    @media (min-width: 961px) {
       .hamburger { display: none; }
-      .hero { padding: 64px 40px 72px; }
-      .hero-headline { font-size: 40px; }
-      .section { padding: 52px 40px; }
-      .pillar { padding: 0 36px; }
-      .footer { padding: 18px 40px; }
-      .contact-grid { gap: 60px; }
     }
 
-    @media (min-width: 1201px) {
-      .hamburger { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <nav class="nav">
-    <div class="logo">
-      <div class="logo-mark"></div>
-      <div class="logo-wordmark">Odin Construction</div>
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#" class="logo" aria-label="Odin Construction home">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <div class="logo-wordmark">Odin Construction</div>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links" id="nav-links">
+          <a href="#services" data-t="navServices">Services</a>
+          <a href="#projects" data-t="navProjects">Projects</a>
+          <a href="#about" data-t="navAbout">About</a>
+          <a href="#contact" data-t="navContact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-cta" data-t="navCta" data-event="cta_primary_click">Request a quote</a>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+        </div>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="hero-eyebrow" data-t="heroEyebrow">Lisbon-based contractor</p>
+        <h1 class="hero-headline" id="hero-title" data-t="heroHeadline">Construction and engineering for buildings and infrastructure</h1>
+        <p class="hero-sub" data-t="heroSub">Based in Lisbon, delivering renovation, MEP, maintenance, and civil works across Portugal and selected EU projects.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary" data-t="heroCtaPrimary" data-event="cta_primary_click">Request a quote</a>
+          <a href="#projects" class="btn btn-secondary" data-t="heroCtaSecondary" data-event="cta_secondary_click">See projects</a>
+        </div>
+        <ul class="trust-list" aria-label="Company highlights">
+          <li data-t="trustChip1">Residential &amp; commercial</li>
+          <li data-t="trustChip2">PT / EU delivery</li>
+          <li data-t="trustChip3">10+ years experience</li>
+          <li data-t="trustChip4">Fast response</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="trust-strip" aria-label="Trust indicators">
+      <div class="container">
+        <div class="trust-strip-inner">
+          <div class="trust-item">
+            <strong data-t="trustStrip1Title">10+</strong>
+            <span data-t="trustStrip1Sub">Years of hands-on experience in Europe</span>
+          </div>
+          <div class="trust-item">
+            <strong data-t="trustStrip2Title">500+</strong>
+            <span data-t="trustStrip2Sub">Residential buildings serviced across Europe</span>
+          </div>
+          <div class="trust-item">
+            <strong data-t="trustStrip3Title">Lisbon</strong>
+            <span data-t="trustStrip3Sub">Based in Portugal, delivering across the EU</span>
+          </div>
+          <div class="trust-item">
+            <strong data-t="trustStrip4Title">1 day</strong>
+            <span data-t="trustStrip4Sub">Typical response time for enquiries</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="nav-right">
-      <div class="nav-links" id="nav-links">
-        <a href="#services" data-t="navServices" style="color:#a0a09c!important;text-decoration:none!important;">Services</a>
-        <a href="#about" data-t="navAbout" style="color:#a0a09c!important;text-decoration:none!important;">About</a>
-        <a href="#projects" data-t="navProjects" style="color:#a0a09c!important;text-decoration:none!important;">Projects</a>
-        <a href="#contact" data-t="navContact" style="color:#a0a09c!important;text-decoration:none!important;">Contact</a>
+
+    <div class="rule"></div>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <h2 class="section-label" id="services-title"><span data-t="labelServices">What we do</span></h2>
+        <div class="pillars">
+          <article class="pillar">
+            <h3 class="pillar-title" data-t="pillar1Title">Renovation and fit-out</h3>
+            <p class="pillar-desc" data-t="pillar1Desc">Building renovation and fit-out for residential and commercial interiors, from technical preparation to final finishes.</p>
+          </article>
+          <article class="pillar">
+            <h3 class="pillar-title" data-t="pillar2Title">MEP and maintenance</h3>
+            <p class="pillar-desc" data-t="pillar2Desc">Electrical works, plumbing, repairs, and day-to-day upkeep for residential buildings and commercial facilities.</p>
+          </article>
+          <article class="pillar">
+            <h3 class="pillar-title" data-t="pillar3Title">Civil and infrastructure</h3>
+            <p class="pillar-desc" data-t="pillar3Desc">Road works, utility installations, drainage, and public infrastructure projects with coordinated site execution.</p>
+          </article>
+        </div>
       </div>
-      <div class="lang">
-        <span class="active" data-lang="en">EN</span>
-        <span data-lang="pt">PT</span>
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 class="section-label" id="projects-title"><span data-t="labelProjects">Selected projects</span></h2>
+        <p class="section-intro" data-t="projectsIntro">Real delivery across industrial, utility, and commercial scopes in Portugal and Europe.</p>
       </div>
-      <div class="hamburger" id="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </nav>
+      <div class="projects-grid">
 
-  <section class="hero">
-    <div class="hero-headline" data-t="heroHeadline">We build and maintain<br>what people depend on</div>
-    <div class="hero-sub" data-t="heroSub">Construction and engineering based in Lisbon, working across Portugal and Europe.</div>
-    <a href="#contact" class="hero-cta" data-t="heroCta" style="color:#3B8FCC!important;text-decoration:none!important;">Get in touch →</a>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="section" id="services">
-    <div class="section-label" data-t="labelServices">Services</div>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-title" data-t="pillar1Title">Building Construction<br>and Renovation</div>
-        <div class="pillar-desc" data-t="pillar1Desc">New builds, refurbishments, and fit-outs for residential and commercial properties.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title" data-t="pillar2Title">Property Management<br>and Maintenance</div>
-        <div class="pillar-desc" data-t="pillar2Desc">Day-to-day upkeep, electrical works, plumbing, repairs, and servicing of residential buildings and facilities.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-title" data-t="pillar3Title">Civil and Public<br>Infrastructure Works</div>
-        <div class="pillar-desc" data-t="pillar3Desc">Road works, utility installations, drainage, and public infrastructure projects.</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="section" id="about">
-    <div class="about-grid">
-      <div class="section-label" style="margin-bottom: 0;" data-t="labelAbout">About</div>
-      <div class="about-text" data-t="aboutText">Odin Construction is a Portuguese construction company based in Lisbon. Our team's expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.</div>
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="section" id="projects">
-    <div class="section-label" data-t="labelProjects">Selected Projects</div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-photo" data-carousel>
-          <div class="carousel">
-            <div class="carousel-slide"><span>Photo 1</span></div>
-            <div class="carousel-slide"><span>Photo 2</span></div>
-            <div class="carousel-slide"><span>Photo 3</span></div>
+        <article class="project-card">
+          <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/YBxVmbYd/img1.jpg","https://i.ibb.co/sSF9wVt/img2.jpg","https://i.ibb.co/HpC7b1V0/img3.jpg","https://i.ibb.co/Q3VNScTB/img4.jpg","https://i.ibb.co/23RX3Cp3/img0.jpg"]' data-event="gallery_open" aria-label="Open gallery: Modular Agricultural Units">
+            <img src="https://i.ibb.co/23RX3Cp3/img0.jpg" alt="Modular Agricultural Units exterior" width="960" height="540" loading="lazy" />
+            <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          </button>
+          <div class="project-info">
+            <h3 class="project-name" data-t="project1Name">Modular Agricultural Units</h3>
+            <p class="project-meta" data-t="project1Meta">Industrial construction · Germany · 2026</p>
+            <p class="project-desc" data-t="project1Desc">Full-scope fit-out of modular agricultural units including MEP systems, plumbing, and water infrastructure.</p>
           </div>
-          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
-          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
-          <div class="carousel-dots"></div>
-        </div>
-        <div class="project-info">
-          <div class="project-name">Project Name</div>
-          <div class="project-meta">Type · Location · Year</div>
-        </div>
-      </div>
+        </article>
 
-      <div class="project-card">
-        <div class="project-photo" data-carousel>
-          <div class="carousel">
-            <div class="carousel-slide"><img src="https://i.ibb.co/YBxVmbYd/img1.jpg" alt="Modular Agricultural Units interior" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/sSF9wVt/img2.jpg" alt="Modular Agricultural Units plumbing" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/HpC7b1V0/img3.jpg" alt="Modular Agricultural Units electrical" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/Q3VNScTB/img4.jpg" alt="Modular Agricultural Units water systems" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/23RX3Cp3/img0.jpg" alt="Modular Agricultural Units exterior" /></div>
+        <article class="project-card">
+          <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/N6Vp7DHn/1.jpg","https://i.ibb.co/RG1WV8gX/2.jpg","https://i.ibb.co/RTmrnbbf/3.jpg","https://i.ibb.co/VY5kTGvS/4.jpg","https://i.ibb.co/jZsNqFWN/5.jpg","https://i.ibb.co/vCRjL4hg/6.jpg"]' data-event="gallery_open" aria-label="Open gallery: District Heating Pipeline">
+            <img src="https://i.ibb.co/N6Vp7DHn/1.jpg" alt="District heating pipeline installation trench and pipeworks" width="960" height="540" loading="lazy" />
+            <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          </button>
+          <div class="project-info">
+            <h3 class="project-name" data-t="project2Name">District Heating Pipeline</h3>
+            <p class="project-meta" data-t="project2Meta">Utility networks · Latvia · 2024</p>
+            <p class="project-desc" data-t="project2Desc">Installation support for district heating infrastructure with coordinated site execution and technical detailing.</p>
           </div>
-          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
-          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
-          <div class="carousel-dots"></div>
-        </div>
-        <div class="project-info">
-          <div class="project-name" data-t="project2Name">Modular Agricultural Units</div>
-          <div class="project-meta" data-t="project2Meta">Industrial Construction · Germany · 2026</div>
-        </div>
-      </div>
+        </article>
 
-      <div class="project-card">
-        <div class="project-photo" data-carousel>
-          <div class="carousel">
-            <div class="carousel-slide"><img src="https://i.ibb.co/N6Vp7DHn/1.jpg" alt="District Heating Pipeline 1" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/RG1WV8gX/2.jpg" alt="District Heating Pipeline 2" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/RTmrnbbf/3.jpg" alt="District Heating Pipeline 3" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/VY5kTGvS/4.jpg" alt="District Heating Pipeline 4" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/jZsNqFWN/5.jpg" alt="District Heating Pipeline 5" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/vCRjL4hg/6.jpg" alt="District Heating Pipeline 6" /></div>
+        <article class="project-card">
+          <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/m5QvtrsZ/8.jpg","https://i.ibb.co/Cs96G6Tc/9.jpg","https://i.ibb.co/KjK6gb6d/10.jpg","https://i.ibb.co/WWmMwRQk/11.jpg"]' data-event="gallery_open" aria-label="Open gallery: Self-Service Car Wash">
+            <img src="https://i.ibb.co/m5QvtrsZ/8.jpg" alt="Self-service car wash facility under construction" width="960" height="540" loading="lazy" />
+            <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          </button>
+          <div class="project-info">
+            <h3 class="project-name" data-t="project3Name">Self-Service Car Wash</h3>
+            <p class="project-meta" data-t="project3Meta">Commercial construction · Latvia · 2025</p>
+            <p class="project-desc" data-t="project3Desc">Ground-up commercial build of a self-service car wash with structural works and utility connections.</p>
           </div>
-          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
-          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
-          <div class="carousel-dots"></div>
-        </div>
-        <div class="project-info">
-          <div class="project-name" data-t="project3Name">District Heating Pipeline</div>
-          <div class="project-meta" data-t="project3Meta">Utility Networks · Latvia · 2024</div>
-        </div>
+        </article>
+
       </div>
+    </section>
 
-      <div class="project-card">
-        <div class="project-photo" data-carousel>
-          <div class="carousel">
-            <div class="carousel-slide"><img src="https://i.ibb.co/m5QvtrsZ/8.jpg" alt="Self-Service Car Wash 1" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/Cs96G6Tc/9.jpg" alt="Self-Service Car Wash 2" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/KjK6gb6d/10.jpg" alt="Self-Service Car Wash 3" /></div>
-            <div class="carousel-slide"><img src="https://i.ibb.co/WWmMwRQk/11.jpg" alt="Self-Service Car Wash 4" /></div>
+    <div class="rule"></div>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 class="section-label" id="about-title"><span data-t="labelAbout">Why us</span></h2>
+        <div class="why-grid">
+          <div>
+            <p class="about-text" data-t="aboutText">Odin Construction is a Portuguese construction company based in Lisbon. Our team's expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.</p>
           </div>
-          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg></button>
-          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg></button>
-          <div class="carousel-dots"></div>
-        </div>
-        <div class="project-info">
-          <div class="project-name" data-t="project4Name">Self-Service Car Wash</div>
-          <div class="project-meta" data-t="project4Meta">Commercial Construction · Latvia · 2025</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="section" id="contact">
-    <div class="section-label" data-t="labelContact">Contact</div>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-intro" data-t="contactIntro">Our company accepts a wide range of requests, from large-scale projects to smaller works. Contact us to get a quote and a timeline.</div>
-        <div class="contact-note"><span data-t="contactNote">We respond within one business day.</span> <span data-t="contactUrgent">For urgent works, call us directly.</span></div>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <strong data-t="contactPhoneLabel">Phone & WhatsApp</strong>
-            <span><a href="tel:+351913570069" style="color:#e8e5e0!important;text-decoration:none!important;">+351 913 570 069</a></span>
-          </div>
-          <div class="contact-detail">
-            <strong data-t="contactEmailLabel">Email</strong>
-            <span><a href="mailto:hi@odinconstruction.co" style="color:#e8e5e0!important;text-decoration:none!important;">hi@odinconstruction.co</a></span>
+          <div>
+            <ul class="process-list">
+              <li>
+                <strong data-t="process1Title">Licensed. Site-ready.</strong>
+                <span data-t="process1Desc">Delivery-focused execution with clear scope, timeline, and communication from enquiry to handover.</span>
+              </li>
+              <li>
+                <strong data-t="process2Title">Scope to handover</strong>
+                <span data-t="process2Desc">We coordinate structural, MEP, and finishing works under one accountable team.</span>
+              </li>
+              <li>
+                <strong data-t="process3Title">Safety and compliance</strong>
+                <span data-t="process3Desc">Site safety protocols and regulatory compliance built into every project phase.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div id="contact-form-wrap">
-        <form id="contact-form" onsubmit="submitForm(event)">
-          <input type="hidden" name="access_key" value="93e63b60-0a9e-4133-9324-ed5bc734fd39" />
-          <input type="hidden" name="subject" value="New enquiry from odinconstruction.co" />
-          <input type="hidden" name="from_name" value="Odin Construction Website" />
-          <input type="checkbox" name="botcheck" style="display:none;" />
-          <div class="form">
-            <div class="form-field">
-              <label data-t="formName">Name</label>
-              <input type="text" name="name" required />
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 class="section-label" id="contact-title"><span data-t="labelContact">Request a quote</span></h2>
+        <div class="contact-grid">
+          <div>
+            <p class="contact-intro" data-t="contactIntro">Send us your project scope and we'll reply with next steps.</p>
+            <p class="contact-note" data-t="contactNote">We respond within one business day. For urgent works, call us directly.</p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <strong data-t="contactPhoneLabel">Phone &amp; WhatsApp</strong>
+                <a href="tel:+351913570069" data-event="click_phone">+351 913 570 069</a>
+              </div>
+              <div class="contact-detail">
+                <strong data-t="contactEmailLabel">Email</strong>
+                <a href="mailto:hi@odinconstruction.co" data-event="click_email">hi@odinconstruction.co</a>
+              </div>
             </div>
-            <div class="form-field">
-              <label data-t="formEmail">Email</label>
-              <input type="email" name="email" required />
-            </div>
-            <div class="form-field">
-              <label data-t="formMessage">Message</label>
-              <textarea name="message" required></textarea>
-            </div>
-            <button type="submit" class="form-btn" id="form-submit" data-t="formBtn">Send message →</button>
           </div>
-        </form>
-        <div id="form-success" style="display:none;padding:32px 0;">
-          <div style="font-size:14px;font-weight:500;color:#e8e5e0;margin-bottom:10px;" data-t="successTitle">Message sent.</div>
-          <div style="font-size:14px;color:#a0a09c;" data-t="successSub">We will be in touch within one business day.</div>
+          <div id="contact-form-wrap">
+            <form id="contact-form" onsubmit="submitForm(event)" novalidate>
+              <input type="hidden" name="access_key" value="93e63b60-0a9e-4133-9324-ed5bc734fd39" />
+              <input type="hidden" name="subject" value="New enquiry from odinconstruction.co" />
+              <input type="hidden" name="from_name" value="Odin Construction Website" />
+              <input type="text" name="botcheck" tabindex="-1" autocomplete="off" hidden aria-hidden="true" />
+              <div class="form">
+                <p class="form-note" id="form-note" data-t="formNote">Fields marked with * are required.</p>
+                <div class="form-field">
+                  <label for="name"><span data-t="formName">Name</span> <span aria-hidden="true">*</span></label>
+                  <input id="name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div class="form-field">
+                  <label for="email"><span data-t="formEmail">Email</span> <span aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div class="form-field">
+                  <label for="message"><span data-t="formMessage">Project details</span> <span aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" rows="6" required aria-describedby="message-help"></textarea>
+                  <p class="field-hint" id="message-help" data-t="formMessageHelp">Include work type, location, and desired timeline.</p>
+                </div>
+                <button type="submit" class="btn btn-primary form-btn" id="form-submit" data-t="formBtn" data-event="form_submit">Send request</button>
+                <p class="privacy-note" data-t="privacyNote">We use your information only to respond to your enquiry.</p>
+                <div class="form-status" id="form-status" aria-live="polite"></div>
+              </div>
+            </form>
+            <div id="form-success" class="form-success" hidden>
+              <p class="form-success-title" data-t="successTitle">Message sent.</p>
+              <p class="form-success-sub" data-t="successSub">We will be in touch within one business day.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="footer">
-    <div class="footer-copy" data-t="footerCopy">©️ 2026 Odin Construction. All rights reserved.</div>
+    <div class="footer-left">
+      <p class="footer-copy" data-t="footerCopy">&copy; 2026 Odin Construction. All rights reserved.</p>
+      <p class="footer-legal" data-t="footerLegal">Lisbon, Portugal</p>
+    </div>
     <div class="footer-right">
       <div class="footer-badge">
         <span class="footer-badge-num">10+</span>
@@ -497,12 +1100,26 @@
         <span class="footer-badge-num">500+</span>
         <span class="footer-badge-sub" data-t="badge2Sub">Residential buildings in Europe</span>
       </div>
-      <a href="https://www.linkedin.com/company/odin-construction" class="footer-linkedin" style="color:#a0a09c!important;text-decoration:none!important;">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
+      <a href="https://www.linkedin.com/company/odin-construction" class="footer-linkedin" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <span data-t="footerLinkedin">LinkedIn</span>
       </a>
     </div>
   </footer>
+
+  <div class="modal-overlay" id="gallery-modal" role="dialog" aria-modal="true" aria-label="Project gallery" hidden>
+    <div class="modal">
+      <button type="button" class="modal-close" id="modal-close" data-t="modalClose">Close</button>
+      <img id="modal-image" src="" alt="" />
+      <button type="button" class="modal-nav prev" id="modal-prev" aria-label="Previous image" data-event="gallery_prev">
+        <svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg>
+      </button>
+      <button type="button" class="modal-nav next" id="modal-next" aria-label="Next image" data-event="gallery_next">
+        <svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg>
+      </button>
+      <p class="modal-counter" id="modal-counter" aria-live="polite"></p>
+    </div>
+  </div>
 
   <script>
     var translations = {
@@ -511,148 +1128,241 @@
         navAbout: 'About',
         navProjects: 'Projects',
         navContact: 'Contact',
-        heroHeadline: 'We build and maintain<br>what people depend on',
-        heroSub: 'Construction and engineering based in Lisbon, working across Portugal and Europe.',
-        heroCta: 'Get in touch →',
-        labelServices: 'Services',
-        pillar1Title: 'Building Construction<br>and Renovation',
-        pillar1Desc: 'New builds, refurbishments, and fit-outs for residential and commercial properties.',
-        pillar2Title: 'Property Management<br>and Maintenance',
-        pillar2Desc: 'Day-to-day upkeep, electrical works, plumbing, repairs, and servicing of residential buildings and facilities.',
-        pillar3Title: 'Civil and Public<br>Infrastructure Works',
-        pillar3Desc: 'Road works, utility installations, drainage, and public infrastructure projects.',
-        labelAbout: 'About',
+        navCta: 'Request a quote',
+        heroEyebrow: 'Lisbon-based contractor',
+        heroHeadline: 'Construction and engineering for buildings and infrastructure',
+        heroSub: 'Based in Lisbon, delivering renovation, MEP, maintenance, and civil works across Portugal and selected EU projects.',
+        heroCtaPrimary: 'Request a quote',
+        heroCtaSecondary: 'See projects',
+        trustChip1: 'Residential & commercial',
+        trustChip2: 'PT / EU delivery',
+        trustChip3: '10+ years experience',
+        trustChip4: 'Fast response',
+        trustStrip1Title: '10+',
+        trustStrip1Sub: 'Years of hands-on experience in Europe',
+        trustStrip2Title: '500+',
+        trustStrip2Sub: 'Residential buildings serviced across Europe',
+        trustStrip3Title: 'Lisbon',
+        trustStrip3Sub: 'Based in Portugal, delivering across the EU',
+        trustStrip4Title: '1 day',
+        trustStrip4Sub: 'Typical response time for enquiries',
+        labelServices: 'What we do',
+        pillar1Title: 'Renovation and fit-out',
+        pillar1Desc: 'Building renovation and fit-out for residential and commercial interiors, from technical preparation to final finishes.',
+        pillar2Title: 'MEP and maintenance',
+        pillar2Desc: 'Electrical works, plumbing, repairs, and day-to-day upkeep for residential buildings and commercial facilities.',
+        pillar3Title: 'Civil and infrastructure',
+        pillar3Desc: 'Road works, utility installations, drainage, and public infrastructure projects with coordinated site execution.',
+        labelProjects: 'Selected projects',
+        projectsIntro: 'Real delivery across industrial, utility, and commercial scopes in Portugal and Europe.',
+        galleryBadge: 'View gallery',
+        project1Name: 'Modular Agricultural Units',
+        project1Meta: 'Industrial construction · Germany · 2026',
+        project1Desc: 'Full-scope fit-out of modular agricultural units including MEP systems, plumbing, and water infrastructure.',
+        project2Name: 'District Heating Pipeline',
+        project2Meta: 'Utility networks · Latvia · 2024',
+        project2Desc: 'Installation support for district heating infrastructure with coordinated site execution and technical detailing.',
+        project3Name: 'Self-Service Car Wash',
+        project3Meta: 'Commercial construction · Latvia · 2025',
+        project3Desc: 'Ground-up commercial build of a self-service car wash with structural works and utility connections.',
+        labelAbout: 'Why us',
         aboutText: 'Odin Construction is a Portuguese construction company based in Lisbon. Our team\'s expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.',
-        labelProjects: 'Selected Projects',
-        labelContact: 'Contact',
-        contactIntro: 'Our company accepts a wide range of requests, from large-scale projects to smaller works. Contact us to get a quote and a timeline.',
-        contactNote: 'We respond within one business day.',
-        contactUrgent: 'For urgent works, call us directly.',
+        process1Title: 'Licensed. Site-ready.',
+        process1Desc: 'Delivery-focused execution with clear scope, timeline, and communication from enquiry to handover.',
+        process2Title: 'Scope to handover',
+        process2Desc: 'We coordinate structural, MEP, and finishing works under one accountable team.',
+        process3Title: 'Safety and compliance',
+        process3Desc: 'Site safety protocols and regulatory compliance built into every project phase.',
+        labelContact: 'Request a quote',
+        contactIntro: 'Send us your project scope and we\'ll reply with next steps.',
+        contactNote: 'We respond within one business day. For urgent works, call us directly.',
         contactPhoneLabel: 'Phone & WhatsApp',
         contactEmailLabel: 'Email',
+        formNote: 'Fields marked with * are required.',
         formName: 'Name',
         formEmail: 'Email',
-        formMessage: 'Message',
-        formBtn: 'Send message →',
+        formMessage: 'Project details',
+        formMessageHelp: 'Include work type, location, and desired timeline.',
+        formBtn: 'Send request',
+        privacyNote: 'We use your information only to respond to your enquiry.',
         successTitle: 'Message sent.',
         successSub: 'We will be in touch within one business day.',
-        project2Name: 'Modular Agricultural Units',
-        project2Meta: 'Industrial Construction · Germany · 2026',
-        project3Name: 'District Heating Pipeline',
-        project3Meta: 'Utility Networks · Latvia · 2024',
-        project4Name: 'Self-Service Car Wash',
-        project4Meta: 'Commercial Construction · Latvia · 2025',
-        footerCopy: '©️ 2026 Odin Construction. All rights reserved.',
+        footerCopy: '\u00a9 2026 Odin Construction. All rights reserved.',
+        footerLegal: 'Lisbon, Portugal',
         footerLinkedin: 'LinkedIn',
         badge1Sub: 'Years in building management',
-        badge2Sub: 'Residential buildings in Europe'
+        badge2Sub: 'Residential buildings in Europe',
+        modalClose: 'Close'
       },
       pt: {
-        navServices: 'Serviços',
+        navServices: 'Servi\u00e7os',
         navAbout: 'Sobre',
         navProjects: 'Projetos',
         navContact: 'Contacto',
-        heroHeadline: 'Construímos e mantemos<br>o que as pessoas dependem',
-        heroSub: 'Construção e engenharia com base em Lisboa, a trabalhar em Portugal e na Europa.',
-        heroCta: 'Fale connosco →',
-        labelServices: 'Serviços',
-        pillar1Title: 'Construção e Renovação<br>de Edifícios',
-        pillar1Desc: 'Obras novas, remodelações e acabamentos para imóveis residenciais e comerciais.',
-        pillar2Title: 'Gestão e Manutenção<br>de Imóveis',
-        pillar2Desc: 'Manutenção quotidiana, instalações elétricas, canalizações, reparações e serviços em edifícios residenciais.',
-        pillar3Title: 'Obras de Infraestrutura<br>Civil e Pública',
-        pillar3Desc: 'Obras rodoviárias, instalação de infraestruturas, drenagem e projetos de obras públicas.',
-        labelAbout: 'Sobre',
-        aboutText: 'A Odin Construction é uma empresa portuguesa de construção com sede em Lisboa. A experiência da nossa equipa abrange engenharia, instalações elétricas, canalizações e gestão de obras, com mais de dez anos de experiência na Europa. Trabalhamos com clientes privados, promotores e entidades públicas que valorizam a precisão e a fiabilidade.',
-        labelProjects: 'Projetos Selecionados',
-        labelContact: 'Contacto',
-        contactIntro: 'A nossa empresa aceita uma vasta gama de pedidos, desde projetos de grande escala a obras mais pequenas. Contacte-nos para obter um orçamento e um prazo.',
-        contactNote: 'Respondemos no prazo de um dia útil.',
-        contactUrgent: 'Para trabalhos urgentes, contacte-nos diretamente por telefone.',
+        navCta: 'Pedir or\u00e7amento',
+        heroEyebrow: 'Empreiteiro em Lisboa',
+        heroHeadline: 'Constru\u00e7\u00e3o e engenharia para edif\u00edcios e infraestruturas',
+        heroSub: 'Com base em Lisboa, executamos reabilita\u00e7\u00e3o, especialidades t\u00e9cnicas, manuten\u00e7\u00e3o e obras civis em Portugal e em projetos selecionados na UE.',
+        heroCtaPrimary: 'Pedir or\u00e7amento',
+        heroCtaSecondary: 'Ver projetos',
+        trustChip1: 'Residencial e comercial',
+        trustChip2: 'Entrega PT / UE',
+        trustChip3: '10+ anos de experi\u00eancia',
+        trustChip4: 'Resposta r\u00e1pida',
+        trustStrip1Title: '10+',
+        trustStrip1Sub: 'Anos de experi\u00eancia pr\u00e1tica na Europa',
+        trustStrip2Title: '500+',
+        trustStrip2Sub: 'Edif\u00edcios residenciais em toda a Europa',
+        trustStrip3Title: 'Lisboa',
+        trustStrip3Sub: 'Com base em Portugal, com entregas na UE',
+        trustStrip4Title: '1 dia',
+        trustStrip4Sub: 'Tempo t\u00edpico de resposta a pedidos',
+        labelServices: 'O que fazemos',
+        pillar1Title: 'Reabilita\u00e7\u00e3o e fit-out',
+        pillar1Desc: 'Da obra estrutural aos acabamentos finais em espa\u00e7os residenciais e comerciais.',
+        pillar2Title: 'Especialidades t\u00e9cnicas e manuten\u00e7\u00e3o',
+        pillar2Desc: 'Instala\u00e7\u00f5es el\u00e9tricas, canaliza\u00e7\u00f5es, repara\u00e7\u00f5es e manuten\u00e7\u00e3o quotidiana de edif\u00edcios e instala\u00e7\u00f5es.',
+        pillar3Title: 'Obras civis e infraestruturas',
+        pillar3Desc: 'Obras rodovi\u00e1rias, instala\u00e7\u00f5es de utilidades, drenagem e projetos de infraestrutura p\u00fablica.',
+        labelProjects: 'Projetos selecionados',
+        projectsIntro: 'Entregas reais em \u00e2mbitos industriais, de utilidades p\u00fablicas e comerciais em Portugal e na Europa.',
+        galleryBadge: 'Ver galeria',
+        project1Name: 'Unidades Agr\u00edcolas Modulares',
+        project1Meta: 'Constru\u00e7\u00e3o industrial \u00b7 Alemanha \u00b7 2026',
+        project1Desc: 'Fit-out completo de unidades agr\u00edcolas modulares, incluindo sistemas MEP, canaliza\u00e7\u00f5es e infraestrutura h\u00eddrica.',
+        project2Name: 'Rede de Aquecimento Urbano',
+        project2Meta: 'Redes de utilidade p\u00fablica \u00b7 Let\u00f3nia \u00b7 2024',
+        project2Desc: 'Apoio \u00e0 instala\u00e7\u00e3o de infraestrutura de aquecimento urbano com execu\u00e7\u00e3o coordenada em obra.',
+        project3Name: 'Lavagem Autom\u00f3vel Self-Service',
+        project3Meta: 'Constru\u00e7\u00e3o comercial \u00b7 Let\u00f3nia \u00b7 2025',
+        project3Desc: 'Constru\u00e7\u00e3o comercial de lavagem autom\u00f3vel self-service com obras estruturais e liga\u00e7\u00f5es de utilidades.',
+        labelAbout: 'Porqu\u00ea n\u00f3s',
+        aboutText: 'A Odin Construction \u00e9 uma empresa portuguesa de constru\u00e7\u00e3o com sede em Lisboa. A experi\u00eancia da nossa equipa abrange engenharia, instala\u00e7\u00f5es el\u00e9tricas, canaliza\u00e7\u00f5es e gest\u00e3o de obras, com mais de dez anos de experi\u00eancia na Europa. Trabalhamos com clientes privados, promotores e entidades p\u00fablicas que valorizam a precis\u00e3o e a fiabilidade.',
+        process1Title: 'Licenciados. Prontos para obra.',
+        process1Desc: 'Execu\u00e7\u00e3o focada na entrega com \u00e2mbito, prazo e comunica\u00e7\u00e3o claros desde o pedido at\u00e9 \u00e0 entrega.',
+        process2Title: '\u00c2mbito \u00e0 entrega',
+        process2Desc: 'Coordenamos obras estruturais, especialidades t\u00e9cnicas e acabamentos numa \u00fanica equipa respons\u00e1vel.',
+        process3Title: 'Seguran\u00e7a e conformidade',
+        process3Desc: 'Protocolos de seguran\u00e7a em obra e conformidade regulat\u00f3ria em todas as fases do projeto.',
+        labelContact: 'Pedir or\u00e7amento',
+        contactIntro: 'Envie-nos o \u00e2mbito do seu projeto e responderemos com os pr\u00f3ximos passos.',
+        contactNote: 'Respondemos no prazo de um dia \u00fatil. Para trabalhos urgentes, contacte-nos diretamente.',
         contactPhoneLabel: 'Telefone & WhatsApp',
         contactEmailLabel: 'Email',
+        formNote: 'Os campos marcados com * s\u00e3o obrigat\u00f3rios.',
         formName: 'Nome',
         formEmail: 'Email',
-        formMessage: 'Mensagem',
-        formBtn: 'Enviar mensagem →',
+        formMessage: 'Detalhes do projeto',
+        formMessageHelp: 'Inclua o tipo de obra, localiza\u00e7\u00e3o e prazo pretendido.',
+        formBtn: 'Enviar pedido',
+        privacyNote: 'Utilizamos os seus dados apenas para responder ao seu pedido.',
         successTitle: 'Mensagem enviada.',
-        successSub: 'Entraremos em contacto no prazo de um dia útil.',
-        project2Name: 'Unidades Agrícolas Modulares',
-        project2Meta: 'Construção Industrial · Alemanha · 2026',
-        project3Name: 'Rede de Aquecimento Urbano',
-        project3Meta: 'Redes de Utilidade Pública · Letónia · 2024',
-        project4Name: 'Lavagem Automóvel Self-Service',
-        project4Meta: 'Construção Comercial · Letónia · 2025',
-        footerCopy: '©️ 2026 Odin Construction. Todos os direitos reservados.',
+        successSub: 'Entraremos em contacto no prazo de um dia \u00fatil.',
+        footerCopy: '\u00a9 2026 Odin Construction. Todos os direitos reservados.',
+        footerLegal: 'Lisboa, Portugal',
         footerLinkedin: 'LinkedIn',
-        badge1Sub: 'Anos em gestão de edifícios',
-        badge2Sub: 'Edifícios residenciais na Europa'
+        badge1Sub: 'Anos em gest\u00e3o de edif\u00edcios',
+        badge2Sub: 'Edif\u00edcios residenciais na Europa',
+        modalClose: 'Fechar'
       }
     };
 
     var currentLang = 'en';
+    var formStarted = false;
+    var galleryImages = [];
+    var galleryIndex = 0;
 
-    function setLang(lang) {
+    function trackEvent(name) {
+      if (typeof gtag === 'function') {
+        gtag('event', name);
+      }
+    }
+
+    function applyTranslations(lang) {
       currentLang = lang;
       var t = translations[lang];
 
-      document.querySelectorAll('.lang span').forEach(function(el) {
-        el.classList.toggle('active', el.dataset.lang === lang);
+      document.querySelectorAll('[data-t]').forEach(function(el) {
+        var key = el.getAttribute('data-t');
+        if (t[key] !== undefined) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+          el.innerHTML = t[key];
+        }
       });
 
-      document.querySelector('[data-t="navServices"]').textContent = t.navServices;
-      document.querySelector('[data-t="navAbout"]').textContent = t.navAbout;
-      document.querySelector('[data-t="navProjects"]').textContent = t.navProjects;
-      document.querySelector('[data-t="navContact"]').textContent = t.navContact;
-      document.querySelector('[data-t="heroHeadline"]').innerHTML = t.heroHeadline;
-      document.querySelector('[data-t="heroSub"]').textContent = t.heroSub;
-      document.querySelector('[data-t="heroCta"]').textContent = t.heroCta;
-      document.querySelector('[data-t="labelServices"]').lastChild.textContent = t.labelServices;
-      document.querySelector('[data-t="pillar1Title"]').innerHTML = t.pillar1Title;
-      document.querySelector('[data-t="pillar1Desc"]').textContent = t.pillar1Desc;
-      document.querySelector('[data-t="pillar2Title"]').innerHTML = t.pillar2Title;
-      document.querySelector('[data-t="pillar2Desc"]').textContent = t.pillar2Desc;
-      document.querySelector('[data-t="pillar3Title"]').innerHTML = t.pillar3Title;
-      document.querySelector('[data-t="pillar3Desc"]').textContent = t.pillar3Desc;
-      document.querySelector('[data-t="labelAbout"]').lastChild.textContent = t.labelAbout;
-      document.querySelector('[data-t="aboutText"]').textContent = t.aboutText;
-      document.querySelector('[data-t="labelProjects"]').lastChild.textContent = t.labelProjects;
-      document.querySelector('[data-t="labelContact"]').lastChild.textContent = t.labelContact;
-      document.querySelector('[data-t="contactIntro"]').textContent = t.contactIntro;
-      document.querySelector('[data-t="contactNote"]').textContent = t.contactNote;
-      document.querySelector('[data-t="contactUrgent"]').textContent = t.contactUrgent;
-      document.querySelector('[data-t="contactPhoneLabel"]').textContent = t.contactPhoneLabel;
-      document.querySelector('[data-t="contactEmailLabel"]').textContent = t.contactEmailLabel;
-      document.querySelector('[data-t="formName"]').textContent = t.formName;
-      document.querySelector('[data-t="formEmail"]').textContent = t.formEmail;
-      document.querySelector('[data-t="formMessage"]').textContent = t.formMessage;
-      document.querySelector('[data-t="formBtn"]').textContent = t.formBtn;
-      var st = document.querySelector('[data-t="successTitle"]');
-      var ss = document.querySelector('[data-t="successSub"]');
-      if (st) st.textContent = t.successTitle;
-      if (ss) ss.textContent = t.successSub;
-      document.querySelector('[data-t="footerCopy"]').textContent = t.footerCopy;
-      document.querySelector('[data-t="project2Name"]').textContent = t.project2Name;
-      document.querySelector('[data-t="project2Meta"]').textContent = t.project2Meta;
-      document.querySelector('[data-t="project3Name"]').textContent = t.project3Name;
-      document.querySelector('[data-t="project3Meta"]').textContent = t.project3Meta;
-      document.querySelector('[data-t="project4Name"]').textContent = t.project4Name;
-      document.querySelector('[data-t="project4Meta"]').textContent = t.project4Meta;
-      document.querySelector('[data-t="badge1Sub"]').textContent = t.badge1Sub;
-      document.querySelector('[data-t="badge2Sub"]').textContent = t.badge2Sub;
+      document.querySelectorAll('.lang button').forEach(function(btn) {
+        var isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
 
-      document.documentElement.lang = lang;
+      document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
+      document.title = lang === 'pt'
+        ? 'Odin Construction \u2014 Constru\u00e7\u00e3o e Engenharia | Lisboa, Portugal'
+        : 'Odin Construction \u2014 Construction & Engineering | Lisbon, Portugal';
+
+      var url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState(null, '', url.toString());
     }
 
-    document.querySelectorAll('.lang span').forEach(function(el) {
-      el.addEventListener('click', function() { setLang(el.dataset.lang); });
+    function initLang() {
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang');
+      if (lang === 'pt' || lang === 'en') {
+        applyTranslations(lang);
+      }
+    }
+
+    document.querySelectorAll('.lang button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        applyTranslations(btn.dataset.lang);
+        trackEvent('language_toggle');
+      });
+    });
+
+    document.getElementById('hamburger').addEventListener('click', function() {
+      var links = document.getElementById('nav-links');
+      var isOpen = links.classList.toggle('open');
+      this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('#nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-links').classList.remove('open');
+        document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelectorAll('[data-event]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        trackEvent(el.getAttribute('data-event'));
+      });
+    });
+
+    var formFields = document.querySelectorAll('#contact-form input, #contact-form textarea');
+    formFields.forEach(function(field) {
+      field.addEventListener('focus', function() {
+        if (!formStarted) {
+          formStarted = true;
+          trackEvent('form_start');
+        }
+      });
     });
 
     function submitForm(e) {
       e.preventDefault();
       var form = document.getElementById('contact-form');
       var btn = document.getElementById('form-submit');
-      var lang = document.documentElement.lang || 'en';
+      var status = document.getElementById('form-status');
+      var lang = currentLang;
+
+      status.textContent = '';
+
+      if (!form.checkValidity()) {
+        status.textContent = lang === 'pt' ? 'Por favor preencha todos os campos obrigat\u00f3rios.' : 'Please complete all required fields.';
+        return;
+      }
 
       btn.disabled = true;
       btn.textContent = lang === 'pt' ? 'A enviar...' : 'Sending...';
@@ -666,68 +1376,81 @@
       .then(function(res) { return res.json(); })
       .then(function(res) {
         if (res.success) {
-          document.getElementById('contact-form').style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
+          form.hidden = true;
+          document.getElementById('form-success').hidden = false;
+          trackEvent('generate_lead');
         } else {
           btn.disabled = false;
-          btn.textContent = lang === 'pt' ? 'Enviar mensagem →' : 'Send message →';
-          alert(lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.');
+          btn.textContent = translations[lang].formBtn;
+          status.textContent = lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.';
         }
       })
       .catch(function() {
         btn.disabled = false;
-        btn.textContent = lang === 'pt' ? 'Enviar mensagem →' : 'Send message →';
-        alert(lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.');
+        btn.textContent = translations[lang].formBtn;
+        status.textContent = lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.';
       });
     }
 
-    document.querySelectorAll('[data-carousel]').forEach(function(el) {
-      var carousel = el.querySelector('.carousel');
-      var slides = el.querySelectorAll('.carousel-slide');
-      var dotsContainer = el.querySelector('.carousel-dots');
-      var total = slides.length;
-      var current = 0;
+    var modal = document.getElementById('gallery-modal');
+    var modalImg = document.getElementById('modal-image');
+    var modalCounter = document.getElementById('modal-counter');
 
-      if (total <= 1) {
-        el.querySelector('.carousel-btn.prev').style.display = 'none';
-        el.querySelector('.carousel-btn.next').style.display = 'none';
-        return;
-      }
+    function updateModalImage() {
+      modalImg.src = galleryImages[galleryIndex];
+      modalImg.alt = 'Project image ' + (galleryIndex + 1) + ' of ' + galleryImages.length;
+      modalCounter.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
+    }
 
-      slides.forEach(function(_, i) {
-        var dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        dot.addEventListener('click', function() { goTo(i); });
-        dotsContainer.appendChild(dot);
+    function openGallery(images) {
+      galleryImages = images;
+      galleryIndex = 0;
+      updateModalImage();
+      modal.hidden = false;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modal-close').focus();
+    }
+
+    function closeGallery() {
+      modal.hidden = true;
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-gallery]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var images = JSON.parse(btn.getAttribute('data-gallery'));
+        openGallery(images);
       });
-
-      function goTo(n) {
-        current = (n + total) % total;
-        carousel.style.transform = 'translateX(-' + (current * 100) + '%)';
-        el.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-          d.classList.toggle('active', i === current);
-        });
-      }
-
-      el.querySelector('.carousel-btn.prev').addEventListener('click', function() { goTo(current - 1); });
-      el.querySelector('.carousel-btn.next').addEventListener('click', function() { goTo(current + 1); });
-
-      var touchStartX = 0;
-      var touchEndX = 0;
-
-      el.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      el.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        var diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 40) {
-          goTo(diff > 0 ? current + 1 : current - 1);
-        }
-      }, { passive: true });
     });
+
+    document.getElementById('modal-close').addEventListener('click', closeGallery);
+
+    document.getElementById('modal-prev').addEventListener('click', function() {
+      galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateModalImage();
+      trackEvent('gallery_next');
+    });
+
+    document.getElementById('modal-next').addEventListener('click', function() {
+      galleryIndex = (galleryIndex + 1) % galleryImages.length;
+      updateModalImage();
+      trackEvent('gallery_next');
+    });
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeGallery();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') closeGallery();
+      if (e.key === 'ArrowLeft') document.getElementById('modal-prev').click();
+      if (e.key === 'ArrowRight') document.getElementById('modal-next').click();
+    });
+
+    initLang();
   </script>
 
 </body>
