@@ -18,7 +18,7 @@
   <meta name="twitter:description" content="Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,19 +48,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #111111;
-      --surface: #171717;
-      --surface-2: #1f1f1f;
-      --text: #f2f0eb;
-      --muted: #b6b1a8;
-      --accent: #4d9ad3;
-      --accent-strong: #76b8e8;
-      --border: #2b2b2b;
+      --bg: #0a0a0a;
+      --surface: #131313;
+      --surface-2: #1a1a1a;
+      --text: #fafaf8;
+      --muted: #8f8b83;
+      --accent: #ff5a1f;
+      --accent-strong: #ff7a47;
+      --border: #262622;
       --success: #5baa6c;
-      --error: #d06b6b;
+      --error: #ff5c5c;
 
-      --radius-sm: 8px;
-      --radius-md: 14px;
+      --radius-sm: 0px;
+      --radius-md: 0px;
 
       --space-2: 8px;
       --space-3: 12px;
@@ -69,15 +69,17 @@
       --space-6: 32px;
       --space-7: 48px;
       --space-8: 64px;
+      --space-9: 96px;
 
-      --max-width: 1200px;
+      --max-width: 1280px;
 
       --font-heading: 'Lexend', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       --font-body: 'Source Sans 3', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
 
-      --fs-display: clamp(2rem, 4vw, 2.875rem);
-      --fs-h2: clamp(1.5rem, 2.5vw, 1.75rem);
-      --fs-h3: clamp(1.125rem, 1.5vw, 1.25rem);
+      --fs-hero: clamp(2.75rem, 6.4vw, 5.75rem);
+      --fs-h2: clamp(1.875rem, 3.6vw, 3rem);
+      --fs-h3: clamp(1.25rem, 2vw, 1.625rem);
       --fs-body: 1rem;
       --fs-small: 0.875rem;
       --fs-label: 0.75rem;
@@ -102,9 +104,8 @@
       font-family: var(--font-heading);
     }
 
-    .trust-item strong,
-    .footer-badge-num {
-      font-family: var(--font-heading);
+    .mono {
+      font-family: var(--font-mono);
     }
 
     :focus-visible {
@@ -120,17 +121,14 @@
       background: var(--accent);
       color: var(--bg);
       padding: var(--space-3) var(--space-5);
-      font-family: var(--font-heading);
+      font-family: var(--font-mono);
       font-size: var(--fs-small);
       font-weight: 600;
       text-decoration: none;
-      border-radius: var(--radius-sm);
       transition: top 0.15s ease;
     }
 
-    .skip-link:focus {
-      top: var(--space-4);
-    }
+    .skip-link:focus { top: var(--space-4); }
 
     .container {
       max-width: var(--max-width);
@@ -149,8 +147,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 var(--space-6);
-      height: 56px;
-      background: rgba(17, 17, 17, 0.95);
+      height: 60px;
+      background: rgba(10, 10, 10, 0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
     }
@@ -163,17 +161,12 @@
       color: var(--text);
     }
 
-    .logo-mark {
-      width: 13px;
-      height: 13px;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
+    .logo-mark { width: 12px; height: 12px; background: var(--accent); flex-shrink: 0; }
 
     .logo-wordmark {
       font-size: var(--fs-label);
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       white-space: nowrap;
     }
@@ -183,10 +176,10 @@
     .nav-links { display: flex; gap: var(--space-5); flex-wrap: nowrap; }
 
     .nav-links a {
+      font-family: var(--font-mono);
       font-size: var(--fs-label);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       color: var(--muted);
-      font-weight: 400;
       text-decoration: none;
       white-space: nowrap;
       min-height: 24px;
@@ -194,35 +187,31 @@
       align-items: center;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
 
     .nav-cta {
       font-size: var(--fs-label);
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--bg);
+      background: var(--accent);
       text-decoration: none;
       padding: var(--space-2) var(--space-4);
-      border: 1px solid var(--border);
       min-height: 36px;
       display: inline-flex;
       align-items: center;
+      transition: background 0.15s ease;
     }
 
-    .nav-cta:hover { border-color: var(--accent); color: var(--accent-strong); }
+    .nav-cta:hover { background: var(--accent-strong); }
 
-    .lang {
-      display: flex;
-      gap: 10px;
-      padding-left: var(--space-5);
-      border-left: 1px solid var(--border);
-    }
+    .lang { display: flex; gap: 10px; padding-left: var(--space-5); border-left: 1px solid var(--border); }
 
     .lang button {
+      font-family: var(--font-mono);
       font-size: var(--fs-label);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em;
       color: var(--muted);
       background: none;
       border: none;
@@ -230,10 +219,9 @@
       padding: var(--space-2);
       min-width: 24px;
       min-height: 24px;
-      font-family: var(--font-heading);
     }
 
-    .lang button.active { color: var(--text); }
+    .lang button.active { color: var(--accent); }
 
     .hamburger {
       display: none;
@@ -248,57 +236,74 @@
       justify-content: center;
     }
 
-    .hamburger span {
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--muted);
-    }
+    .hamburger span { display: block; width: 20px; height: 1px; background: var(--muted); }
 
     /* HERO */
-    .hero {
-      padding: var(--space-8) 0 var(--space-7);
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      min-height: min(86vh, 780px);
     }
 
-    .hero-eyebrow {
+    .hero-content {
+      padding: clamp(2rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-index {
+      font-family: var(--font-mono);
       font-size: var(--fs-label);
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: var(--space-4);
+      color: var(--accent);
+      margin-bottom: var(--space-5);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .hero-index::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
     }
 
     .hero-headline {
-      font-size: var(--fs-display);
-      font-weight: 500;
+      font-size: var(--fs-hero);
+      font-weight: 600;
       color: var(--text);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      max-width: 720px;
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      max-width: 20ch;
     }
 
     .hero-sub {
-      margin-top: var(--space-5);
-      font-size: var(--fs-body);
+      margin-top: var(--space-6);
+      font-size: 1.0625rem;
       color: var(--muted);
-      line-height: 1.65;
-      max-width: 560px;
+      line-height: 1.6;
+      max-width: 46ch;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--space-3);
-      margin-top: var(--space-6);
+      align-items: center;
+      gap: var(--space-6);
+      margin-top: var(--space-7);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: var(--space-3) var(--space-5);
-      font-family: inherit;
+      min-height: 48px;
+      padding: var(--space-3) var(--space-6);
+      font-family: var(--font-heading);
       font-size: var(--fs-button);
       font-weight: 500;
       letter-spacing: 0.06em;
@@ -306,165 +311,173 @@
       text-decoration: none;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      border-color: var(--accent);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-strong);
-      border-color: var(--accent-strong);
-      color: var(--bg);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--muted);
-      transform: translateY(-1px);
-    }
-
+    .btn-primary { background: var(--accent); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-strong); transform: translateY(-1px); }
     .btn:active { transform: translateY(0); }
 
-    .trust-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      margin-top: var(--space-6);
-      list-style: none;
-      padding: 0;
+    .link-underline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-heading);
+      font-size: var(--fs-button);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 4px;
+      transition: color 0.15s ease, border-color 0.15s ease, gap 0.15s ease;
     }
 
-    .trust-list li {
-      font-size: var(--fs-small);
+    .link-underline:hover { color: var(--accent); border-color: var(--accent); gap: var(--space-3); }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8);
+      list-style: none;
+      padding: 0;
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--muted);
-      padding: var(--space-2) var(--space-3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
+    }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface-2);
+      min-height: 320px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(0.4) contrast(1.1) brightness(0.85);
+    }
+
+    .hero-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, var(--bg) 0%, rgba(10, 10, 10, 0) 22%),
+        linear-gradient(0deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0) 40%);
     }
 
     /* TRUST STRIP */
-    .trust-strip {
-      padding: var(--space-5) 0;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
+    .trust-strip { padding: var(--space-6) 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-    .trust-strip-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-5) var(--space-7);
-      justify-content: space-between;
-    }
+    .trust-strip-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
 
-    .trust-item {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
+    .trust-item { padding: 0 var(--space-5); border-left: 1px solid var(--border); }
+    .trust-item:first-child { border-left: none; padding-left: 0; }
 
     .trust-item strong {
-      font-size: var(--fs-h3);
-      font-weight: 500;
+      display: block;
+      font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+      font-weight: 600;
       color: var(--text);
       letter-spacing: -0.01em;
+      margin-bottom: var(--space-2);
     }
 
     .trust-item span {
-      font-size: var(--fs-small);
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
       color: var(--muted);
     }
 
     /* SECTIONS */
-    .section { padding: var(--space-7) 0; }
+    .section { padding: var(--space-9) 0; }
 
     .section-label {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: baseline;
+      gap: var(--space-4);
+      margin-bottom: var(--space-7);
+    }
+
+    .section-index {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--accent);
+    }
+
+    .section-label h2 {
       font-size: var(--fs-label);
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: var(--space-6);
-      font-weight: 400;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      flex-shrink: 0;
+      font-weight: 500;
     }
 
     .section-intro {
-      font-size: var(--fs-body);
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: var(--space-6);
-      line-height: 1.65;
+      font-size: var(--fs-h3);
+      color: var(--text);
+      max-width: 32ch;
+      margin-bottom: var(--space-7);
+      line-height: 1.4;
+      font-weight: 400;
     }
 
     /* SERVICES */
-    .pillars {
+    .service-row {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0;
+      grid-template-columns: 56px 1fr;
+      grid-template-areas: "index title" "index desc";
+      column-gap: var(--space-5);
+      row-gap: var(--space-2);
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--border);
+      transition: padding-left 0.2s ease, background-color 0.2s ease;
     }
 
-    .pillar { padding: 0 var(--space-6); }
+    .service-row:last-child { border-bottom: 1px solid var(--border); }
+    .service-row:hover { padding-left: var(--space-4); background: var(--surface); }
 
-    .pillar:first-child { padding-left: 0; }
-    .pillar:last-child { padding-right: 0; }
-    .pillar:not(:last-child) { border-right: 1px solid var(--border); }
-
-    .pillar-title {
-      font-size: var(--fs-h3);
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.4;
-      margin-bottom: var(--space-3);
-    }
-
-    .pillar-desc {
-      font-size: var(--fs-body);
-      color: var(--muted);
-      line-height: 1.65;
-    }
+    .service-index { grid-area: index; font-family: var(--font-mono); color: var(--accent); font-size: var(--fs-body); }
+    .service-title { grid-area: title; font-size: var(--fs-h3); font-weight: 600; color: var(--text); }
+    .service-desc { grid-area: desc; color: var(--muted); line-height: 1.65; max-width: 56ch; }
 
     /* PROJECTS */
-    .projects-grid {
+    .projects-bento {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
+      gap: 2px;
       background: var(--border);
     }
 
-    .project-card { background: var(--bg); transition: background 0.2s ease; }
-
-    .project-cover {
-      display: block;
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: var(--surface-2);
+    .project-item {
       position: relative;
       overflow: hidden;
-      border: none;
+      background: var(--bg);
+      min-height: 320px;
+    }
+
+    .project-item.featured { grid-column: span 2; min-height: 460px; }
+
+    .project-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       padding: 0;
+      border: none;
+      background: none;
       cursor: pointer;
-      font-family: inherit;
+      display: block;
     }
 
     .project-cover img {
@@ -472,185 +485,169 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
+      filter: grayscale(0.3) contrast(1.05);
+      transition: transform 0.4s ease, filter 0.3s ease;
     }
 
-    .project-cover:hover img { transform: scale(1.03); }
+    .project-cover:hover img { transform: scale(1.04); filter: grayscale(0) contrast(1.08); }
 
-    .project-cover-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--surface-2);
-      color: var(--border);
+    .project-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0) 35%, rgba(10, 10, 10, 0.9) 100%);
+      pointer-events: none;
+    }
+
+    .project-index {
+      position: absolute;
+      top: var(--space-4);
+      left: var(--space-4);
+      font-family: var(--font-mono);
       font-size: var(--fs-label);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      color: var(--text);
+      background: rgba(10, 10, 10, 0.7);
+      padding: 4px 10px;
+      z-index: 2;
+      pointer-events: none;
     }
 
     .gallery-badge {
       position: absolute;
-      bottom: var(--space-3);
-      right: var(--space-3);
-      background: rgba(17, 17, 17, 0.85);
-      color: var(--text);
+      top: var(--space-4);
+      right: var(--space-4);
+      font-family: var(--font-mono);
       font-size: var(--fs-label);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      padding: var(--space-2) var(--space-3);
-      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(10, 10, 10, 0.7);
+      padding: 4px 10px;
+      z-index: 2;
       pointer-events: none;
     }
 
-    .project-info { padding: var(--space-4) var(--space-5) var(--space-5); }
+    .project-overlay-info {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: var(--space-5);
+      z-index: 2;
+      pointer-events: none;
+    }
 
     .project-name {
-      font-size: var(--fs-body);
-      font-weight: 500;
+      font-size: clamp(1.25rem, 2.6vw, 1.875rem);
+      font-weight: 600;
       color: var(--text);
       margin-bottom: var(--space-2);
     }
 
     .project-meta {
-      font-size: var(--fs-small);
-      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
       margin-bottom: var(--space-3);
     }
 
     .project-desc {
       font-size: var(--fs-small);
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: var(--space-3);
+      color: var(--text);
+      opacity: 0.85;
+      line-height: 1.55;
+      max-width: 48ch;
     }
 
-    .text-link {
-      font-size: var(--fs-small);
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-    }
-
-    .text-link:hover { color: var(--accent-strong); }
+    .featured .project-desc { max-width: 60ch; font-size: var(--fs-body); }
 
     /* WHY US */
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-7);
-      align-items: start;
-    }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
 
-    .about-text {
-      font-size: var(--fs-body);
-      color: var(--muted);
-      line-height: 1.75;
-    }
+    .about-text { font-size: var(--fs-h3); color: var(--text); line-height: 1.5; max-width: 42ch; font-weight: 400; }
 
-    .process-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-    }
+    .process-list { list-style: none; }
 
     .process-list li {
-      padding-left: var(--space-5);
-      position: relative;
-      font-size: var(--fs-body);
-      color: var(--muted);
-      line-height: 1.6;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: var(--space-4);
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--border);
     }
 
-    .process-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-    }
+    .process-list li:first-child { border-top: none; padding-top: 0; }
 
-    .process-list strong {
-      display: block;
-      color: var(--text);
-      font-weight: 500;
-      margin-bottom: var(--space-2);
-    }
+    .process-index { font-family: var(--font-mono); color: var(--accent); font-size: var(--fs-small); }
+
+    .process-list strong { display: block; color: var(--text); font-weight: 600; margin-bottom: var(--space-2); }
+    .process-list span { color: var(--muted); line-height: 1.6; }
 
     /* CONTACT */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: var(--space-8);
-      align-items: start;
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+
+    .contact-intro { font-size: var(--fs-h3); color: var(--text); line-height: 1.4; margin-bottom: var(--space-4); max-width: 28ch; font-weight: 400; }
+
+    .contact-note { font-size: var(--fs-small); color: var(--muted); line-height: 1.65; margin-bottom: var(--space-7); }
+
+    .contact-details { display: flex; flex-direction: column; }
+
+    .contact-detail {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-3);
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--border);
     }
 
-    .contact-intro {
-      font-size: var(--fs-body);
-      color: var(--text);
-      line-height: 1.65;
-      margin-bottom: var(--space-3);
-    }
-
-    .contact-note {
-      font-size: var(--fs-small);
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: var(--space-6);
-    }
-
-    .contact-details { display: flex; flex-direction: column; gap: var(--space-4); }
+    .contact-detail:first-child { border-top: none; padding-top: 0; }
 
     .contact-detail strong {
-      display: block;
+      font-family: var(--font-mono);
       font-size: var(--fs-label);
       font-weight: 400;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: var(--space-2);
+      min-width: 140px;
     }
 
     .contact-detail a {
-      font-size: var(--fs-body);
+      font-size: var(--fs-h3);
       color: var(--text);
       text-decoration: none;
       min-height: 24px;
       display: inline-flex;
       align-items: center;
+      transition: color 0.15s ease;
     }
 
     .contact-detail a:hover { color: var(--accent); }
 
-    .form { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+    .form { display: flex; flex-direction: column; gap: var(--space-5); min-width: 0; }
 
-    .form-note {
-      font-size: var(--fs-small);
-      color: var(--muted);
-      margin-bottom: var(--space-2);
-    }
+    .form-note { font-family: var(--font-mono); font-size: var(--fs-label); color: var(--muted); }
 
     .form-field { display: flex; flex-direction: column; gap: var(--space-2); }
 
     .form-field label {
+      font-family: var(--font-mono);
       font-size: var(--fs-label);
       font-weight: 400;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--muted);
     }
 
     .form-field input,
     .form-field textarea {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: var(--space-3) var(--space-4);
-      font-family: inherit;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-3) 0;
+      font-family: var(--font-body);
       font-size: var(--fs-body);
       color: var(--text);
       outline: none;
@@ -660,52 +657,23 @@
     }
 
     .form-field input:focus,
-    .form-field textarea:focus { border-color: var(--accent); }
+    .form-field textarea:focus { border-bottom-color: var(--accent); }
 
-    .form-field textarea { min-height: 120px; }
+    .form-field textarea { min-height: 110px; }
 
-    .field-hint {
-      font-size: var(--fs-small);
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .field-hint { font-size: var(--fs-small); color: var(--muted); line-height: 1.5; }
 
-    .form-btn {
-      margin-top: var(--space-2);
-      align-self: flex-start;
-    }
-
+    .form-btn { margin-top: var(--space-3); align-self: flex-start; }
     .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .privacy-note {
-      font-size: var(--fs-small);
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
+    .privacy-note { font-size: var(--fs-small); color: var(--muted); line-height: 1.5; }
     .privacy-note a { color: var(--accent); }
 
-    .form-status {
-      font-size: var(--fs-small);
-      color: var(--error);
-      min-height: 1.25em;
-    }
+    .form-status { font-size: var(--fs-small); color: var(--error); min-height: 1.25em; }
 
-    .form-success {
-      padding: var(--space-6) 0;
-    }
-
-    .form-success-title {
-      font-size: var(--fs-body);
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: var(--space-2);
-    }
-
-    .form-success-sub {
-      font-size: var(--fs-body);
-      color: var(--muted);
-    }
+    .form-success { padding: var(--space-6) 0; }
+    .form-success-title { font-size: var(--fs-h3); font-weight: 600; color: var(--text); margin-bottom: var(--space-2); }
+    .form-success-sub { font-size: var(--fs-body); color: var(--muted); }
 
     /* GALLERY MODAL */
     .modal-overlay {
@@ -713,7 +681,7 @@
       position: fixed;
       inset: 0;
       z-index: 200;
-      background: rgba(0, 0, 0, 0.92);
+      background: rgba(0, 0, 0, 0.94);
       align-items: center;
       justify-content: center;
       padding: var(--space-5);
@@ -721,33 +689,23 @@
 
     .modal-overlay.open { display: flex; }
 
-    .modal {
-      position: relative;
-      max-width: 960px;
-      width: 100%;
-    }
+    .modal { position: relative; max-width: 1000px; width: 100%; }
 
-    .modal img {
-      width: 100%;
-      height: auto;
-      max-height: 80vh;
-      object-fit: contain;
-      display: block;
-    }
+    .modal img { width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block; }
 
     .modal-close {
       position: absolute;
-      top: -40px;
+      top: -44px;
       right: 0;
       background: none;
       border: none;
       color: var(--text);
-      font-size: var(--fs-body);
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
       cursor: pointer;
       padding: var(--space-2);
       min-width: 44px;
       min-height: 44px;
-      font-family: inherit;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -756,7 +714,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(17, 17, 17, 0.8);
+      background: rgba(10, 10, 10, 0.8);
       border: 1px solid var(--border);
       color: var(--text);
       cursor: pointer;
@@ -770,21 +728,9 @@
 
     .modal-nav.prev { left: var(--space-3); }
     .modal-nav.next { right: var(--space-3); }
+    .modal-nav svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 
-    .modal-nav svg {
-      width: 18px;
-      height: 18px;
-      stroke: currentColor;
-      stroke-width: 1.5;
-      fill: none;
-    }
-
-    .modal-counter {
-      text-align: center;
-      margin-top: var(--space-3);
-      font-size: var(--fs-small);
-      color: var(--muted);
-    }
+    .modal-counter { text-align: center; margin-top: var(--space-3); font-family: var(--font-mono); font-size: var(--fs-small); color: var(--muted); }
 
     /* FOOTER */
     .footer {
@@ -793,46 +739,34 @@
       align-items: center;
       flex-wrap: wrap;
       gap: var(--space-4);
-      padding: var(--space-4) var(--space-6);
+      padding: var(--space-5) var(--space-6);
       border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
     }
 
     .footer-left { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
 
-    .footer-copy { font-size: var(--fs-small); color: var(--muted); }
+    .footer-copy { font-size: var(--fs-label); color: var(--muted); }
+    .footer-legal { font-size: var(--fs-label); color: var(--muted); }
 
-    .footer-legal {
-      font-size: var(--fs-label);
-      color: var(--muted);
-    }
+    .footer-right { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
 
-    .footer-right { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
-
-    .footer-badge {
-      border: 1px solid var(--border);
-      padding: var(--space-2) var(--space-3);
+    .footer-stats {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
-      border-radius: var(--radius-sm);
-    }
-
-    .footer-badge-num {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .footer-badge-sub {
+      align-items: baseline;
+      gap: var(--space-4);
       font-size: var(--fs-label);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
       color: var(--muted);
     }
 
+    .footer-badge-num { color: var(--text); font-weight: 600; }
+    .footer-stat-sep { color: var(--border); }
+
     .footer-linkedin {
       font-size: var(--fs-label);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--muted);
       display: flex;
@@ -846,6 +780,10 @@
     .footer-linkedin svg { width: 16px; height: 16px; fill: currentColor; }
 
     /* RESPONSIVE */
+    @media (min-width: 769px) {
+      .service-row { grid-template-columns: 72px 320px 1fr; grid-template-areas: "index title desc"; align-items: start; }
+    }
+
     @media (max-width: 768px) {
       .nav { padding: 0 var(--space-4); }
       .nav-links { display: none; }
@@ -853,7 +791,7 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 56px;
+        top: 60px;
         left: 0;
         right: 0;
         background: var(--bg);
@@ -866,40 +804,35 @@
       .hamburger { display: flex; }
       .lang { padding-left: var(--space-4); }
       .container { padding: 0 var(--space-4); }
-      .hero { padding: var(--space-6) 0 var(--space-5); }
-      .section { padding: var(--space-6) 0; }
-      .pillars { grid-template-columns: 1fr; }
-      .pillar {
-        padding: var(--space-5) 0 !important;
-        border-right: none !important;
-        border-bottom: 1px solid var(--border);
-      }
-      .pillar:last-child { border-bottom: none; }
-      .why-grid { grid-template-columns: 1fr; gap: var(--space-5); }
-      .contact-grid { grid-template-columns: 1fr; gap: var(--space-6); }
-      .projects-grid { grid-template-columns: 1fr; }
-      .trust-strip-inner { flex-direction: column; gap: var(--space-4); }
+
+      .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: var(--space-6) var(--space-4) var(--space-7); }
+      .hero-media { min-height: 260px; order: 2; }
+      .hero-headline { max-width: none; }
+
+      .section { padding: var(--space-7) 0; }
+
+      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-5); }
+      .trust-item { border-left: none; padding: 0; }
+      .trust-item:nth-child(even) { border-left: 1px solid var(--border); padding-left: var(--space-5); }
+      .trust-item:nth-child(n + 3) { border-top: 1px solid var(--border); padding-top: var(--space-5); }
+
+      .projects-bento { grid-template-columns: 1fr; }
+      .project-item.featured { grid-column: span 1; min-height: 320px; }
+
+      .why-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .contact-grid { grid-template-columns: 1fr; gap: var(--space-7); }
       .footer { padding: var(--space-4); flex-direction: column; align-items: flex-start; }
       .form-field input, .form-field textarea { font-size: 16px; }
     }
 
-    @media (min-width: 769px) and (max-width: 960px) {
+    @media (min-width: 769px) and (max-width: 1024px) {
       .hamburger { display: none; }
-      .pillars { grid-template-columns: 1fr; }
-      .pillar {
-        padding: var(--space-5) 0 !important;
-        border-right: none !important;
-        border-bottom: 1px solid var(--border);
-      }
-      .pillar:last-child { border-bottom: none; }
-      .why-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .contact-grid { grid-template-columns: 1fr; gap: var(--space-7); }
     }
 
-    @media (min-width: 961px) {
-      .hamburger { display: none; }
-    }
+    @media (min-width: 1025px) { .hamburger { display: none; } }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -941,20 +874,25 @@
 
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <p class="hero-eyebrow" data-t="heroEyebrow">Lisbon-based contractor</p>
-        <h1 class="hero-headline" id="hero-title" data-t="heroHeadline">Construction and engineering for buildings and infrastructure</h1>
-        <p class="hero-sub" data-t="heroSub">Based in Lisbon, delivering renovation, MEP, maintenance, and civil works across Portugal and selected EU projects.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary" data-t="heroCtaPrimary" data-event="cta_primary_click">Request a quote</a>
-          <a href="#projects" class="btn btn-secondary" data-t="heroCtaSecondary" data-event="cta_secondary_click">See projects</a>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="hero-index" data-t="heroEyebrow">Lisbon-based contractor</p>
+          <h1 class="hero-headline" id="hero-title" data-t="heroHeadline">Construction and engineering for buildings and infrastructure</h1>
+          <p class="hero-sub" data-t="heroSub">Based in Lisbon, delivering renovation, MEP, maintenance, and civil works across Portugal and selected EU projects.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary" data-t="heroCtaPrimary" data-event="cta_primary_click">Request a quote</a>
+            <a href="#projects" class="link-underline" data-t="heroCtaSecondary" data-event="cta_secondary_click">See projects →</a>
+          </div>
+          <ul class="hero-tags" aria-label="Company highlights">
+            <li data-t="trustChip1">Residential &amp; commercial</li>
+            <li data-t="trustChip2">PT / EU delivery</li>
+            <li data-t="trustChip3">10+ years experience</li>
+            <li data-t="trustChip4">Fast response</li>
+          </ul>
         </div>
-        <ul class="trust-list" aria-label="Company highlights">
-          <li data-t="trustChip1">Residential &amp; commercial</li>
-          <li data-t="trustChip2">PT / EU delivery</li>
-          <li data-t="trustChip3">10+ years experience</li>
-          <li data-t="trustChip4">Fast response</li>
-        </ul>
+        <div class="hero-media">
+          <img src="https://i.ibb.co/N6Vp7DHn/1.jpg" alt="Engineering site work — trench and district heating pipe installation" width="960" height="960" />
+        </div>
       </div>
     </section>
 
@@ -981,67 +919,78 @@
       </div>
     </div>
 
-    <div class="rule"></div>
-
     <section class="section" id="services" aria-labelledby="services-title">
       <div class="container">
-        <h2 class="section-label" id="services-title"><span data-t="labelServices">What we do</span></h2>
-        <div class="pillars">
-          <article class="pillar">
-            <h3 class="pillar-title" data-t="pillar1Title">Renovation and fit-out</h3>
-            <p class="pillar-desc" data-t="pillar1Desc">Building renovation and fit-out for residential and commercial interiors, from technical preparation to final finishes.</p>
+        <div class="section-label" id="services-title">
+          <span class="section-index" aria-hidden="true">01</span>
+          <h2><span data-t="labelServices">What we do</span></h2>
+        </div>
+        <div class="services-list">
+          <article class="service-row">
+            <span class="service-index" aria-hidden="true">01</span>
+            <h3 class="service-title" data-t="pillar1Title">Renovation and fit-out</h3>
+            <p class="service-desc" data-t="pillar1Desc">Building renovation and fit-out for residential and commercial interiors, from technical preparation to final finishes.</p>
           </article>
-          <article class="pillar">
-            <h3 class="pillar-title" data-t="pillar2Title">MEP and maintenance</h3>
-            <p class="pillar-desc" data-t="pillar2Desc">Electrical works, plumbing, repairs, and day-to-day upkeep for residential buildings and commercial facilities.</p>
+          <article class="service-row">
+            <span class="service-index" aria-hidden="true">02</span>
+            <h3 class="service-title" data-t="pillar2Title">MEP and maintenance</h3>
+            <p class="service-desc" data-t="pillar2Desc">Electrical works, plumbing, repairs, and day-to-day upkeep for residential buildings and commercial facilities.</p>
           </article>
-          <article class="pillar">
-            <h3 class="pillar-title" data-t="pillar3Title">Civil and infrastructure</h3>
-            <p class="pillar-desc" data-t="pillar3Desc">Road works, utility installations, drainage, and public infrastructure projects with coordinated site execution.</p>
+          <article class="service-row">
+            <span class="service-index" aria-hidden="true">03</span>
+            <h3 class="service-title" data-t="pillar3Title">Civil and infrastructure</h3>
+            <p class="service-desc" data-t="pillar3Desc">Road works, utility installations, drainage, and public infrastructure projects with coordinated site execution.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <div class="rule"></div>
-
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <h2 class="section-label" id="projects-title"><span data-t="labelProjects">Selected projects</span></h2>
+        <div class="section-label" id="projects-title">
+          <span class="section-index" aria-hidden="true">02</span>
+          <h2><span data-t="labelProjects">Selected projects</span></h2>
+        </div>
         <p class="section-intro" data-t="projectsIntro">Real delivery across industrial, utility, and commercial scopes in Portugal and Europe.</p>
       </div>
-      <div class="projects-grid">
+      <div class="projects-bento">
 
-        <article class="project-card">
+        <article class="project-item featured">
           <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/YBxVmbYd/img1.jpg","https://i.ibb.co/sSF9wVt/img2.jpg","https://i.ibb.co/HpC7b1V0/img3.jpg","https://i.ibb.co/Q3VNScTB/img4.jpg","https://i.ibb.co/23RX3Cp3/img0.jpg"]' data-event="gallery_open" aria-label="Open gallery: Modular Agricultural Units">
-            <img src="https://i.ibb.co/23RX3Cp3/img0.jpg" alt="Modular Agricultural Units exterior" width="960" height="540" loading="lazy" />
-            <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+            <img src="https://i.ibb.co/23RX3Cp3/img0.jpg" alt="Modular Agricultural Units exterior" width="1200" height="600" loading="lazy" />
           </button>
-          <div class="project-info">
+          <div class="project-scrim" aria-hidden="true"></div>
+          <span class="project-index" aria-hidden="true">01</span>
+          <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          <div class="project-overlay-info">
             <h3 class="project-name" data-t="project1Name">Modular Agricultural Units</h3>
             <p class="project-meta" data-t="project1Meta">Industrial construction · Germany · 2026</p>
             <p class="project-desc" data-t="project1Desc">Full-scope fit-out of modular agricultural units including MEP systems, plumbing, and water infrastructure.</p>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-item">
           <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/N6Vp7DHn/1.jpg","https://i.ibb.co/RG1WV8gX/2.jpg","https://i.ibb.co/RTmrnbbf/3.jpg","https://i.ibb.co/VY5kTGvS/4.jpg","https://i.ibb.co/jZsNqFWN/5.jpg","https://i.ibb.co/vCRjL4hg/6.jpg"]' data-event="gallery_open" aria-label="Open gallery: District Heating Pipeline">
             <img src="https://i.ibb.co/N6Vp7DHn/1.jpg" alt="District heating pipeline installation trench and pipeworks" width="960" height="540" loading="lazy" />
-            <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
           </button>
-          <div class="project-info">
+          <div class="project-scrim" aria-hidden="true"></div>
+          <span class="project-index" aria-hidden="true">02</span>
+          <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          <div class="project-overlay-info">
             <h3 class="project-name" data-t="project2Name">District Heating Pipeline</h3>
             <p class="project-meta" data-t="project2Meta">Utility networks · Latvia · 2024</p>
             <p class="project-desc" data-t="project2Desc">Installation support for district heating infrastructure with coordinated site execution and technical detailing.</p>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-item">
           <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/m5QvtrsZ/8.jpg","https://i.ibb.co/Cs96G6Tc/9.jpg","https://i.ibb.co/KjK6gb6d/10.jpg","https://i.ibb.co/WWmMwRQk/11.jpg"]' data-event="gallery_open" aria-label="Open gallery: Self-Service Car Wash">
             <img src="https://i.ibb.co/m5QvtrsZ/8.jpg" alt="Self-service car wash facility under construction" width="960" height="540" loading="lazy" />
-            <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
           </button>
-          <div class="project-info">
+          <div class="project-scrim" aria-hidden="true"></div>
+          <span class="project-index" aria-hidden="true">03</span>
+          <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          <div class="project-overlay-info">
             <h3 class="project-name" data-t="project3Name">Self-Service Car Wash</h3>
             <p class="project-meta" data-t="project3Meta">Commercial construction · Latvia · 2025</p>
             <p class="project-desc" data-t="project3Desc">Ground-up commercial build of a self-service car wash with structural works and utility connections.</p>
@@ -1051,11 +1000,12 @@
       </div>
     </section>
 
-    <div class="rule"></div>
-
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="container">
-        <h2 class="section-label" id="about-title"><span data-t="labelAbout">Why us</span></h2>
+        <div class="section-label" id="about-title">
+          <span class="section-index" aria-hidden="true">03</span>
+          <h2><span data-t="labelAbout">Why us</span></h2>
+        </div>
         <div class="why-grid">
           <div>
             <p class="about-text" data-t="aboutText">Odin Construction is a Portuguese construction company based in Lisbon. Our team's expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.</p>
@@ -1063,16 +1013,25 @@
           <div>
             <ul class="process-list">
               <li>
-                <strong data-t="process1Title">Licensed. Site-ready.</strong>
-                <span data-t="process1Desc">Delivery-focused execution with clear scope, timeline, and communication from enquiry to handover.</span>
+                <span class="process-index" aria-hidden="true">01</span>
+                <div>
+                  <strong data-t="process1Title">Licensed. Site-ready.</strong>
+                  <span data-t="process1Desc">Delivery-focused execution with clear scope, timeline, and communication from enquiry to handover.</span>
+                </div>
               </li>
               <li>
-                <strong data-t="process2Title">Scope to handover</strong>
-                <span data-t="process2Desc">We coordinate structural, MEP, and finishing works under one accountable team.</span>
+                <span class="process-index" aria-hidden="true">02</span>
+                <div>
+                  <strong data-t="process2Title">Scope to handover</strong>
+                  <span data-t="process2Desc">We coordinate structural, MEP, and finishing works under one accountable team.</span>
+                </div>
               </li>
               <li>
-                <strong data-t="process3Title">Safety and compliance</strong>
-                <span data-t="process3Desc">Site safety protocols and regulatory compliance built into every project phase.</span>
+                <span class="process-index" aria-hidden="true">03</span>
+                <div>
+                  <strong data-t="process3Title">Safety and compliance</strong>
+                  <span data-t="process3Desc">Site safety protocols and regulatory compliance built into every project phase.</span>
+                </div>
               </li>
             </ul>
           </div>
@@ -1080,11 +1039,12 @@
       </div>
     </section>
 
-    <div class="rule"></div>
-
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="container">
-        <h2 class="section-label" id="contact-title"><span data-t="labelContact">Request a quote</span></h2>
+        <div class="section-label" id="contact-title">
+          <span class="section-index" aria-hidden="true">04</span>
+          <h2><span data-t="labelContact">Request a quote</span></h2>
+        </div>
         <div class="contact-grid">
           <div>
             <p class="contact-intro" data-t="contactIntro">Send us your project scope and we'll reply with next steps.</p>
@@ -1138,17 +1098,14 @@
 
   <footer class="footer">
     <div class="footer-left">
-      <p class="footer-copy" data-t="footerCopy">&copy; 2026 Odin Construction. All rights reserved.</p>
+      <p class="footer-copy" data-t="footerCopy">© 2026 Odin Construction. All rights reserved.</p>
       <p class="footer-legal" data-t="footerLegal">Lisbon, Portugal</p>
     </div>
     <div class="footer-right">
-      <div class="footer-badge">
-        <span class="footer-badge-num" data-counter="true">10+</span>
-        <span class="footer-badge-sub" data-t="badge1Sub">Years in building management</span>
-      </div>
-      <div class="footer-badge">
-        <span class="footer-badge-num" data-counter="true">500+</span>
-        <span class="footer-badge-sub" data-t="badge2Sub">Residential buildings in Europe</span>
+      <div class="footer-stats">
+        <span class="footer-stat"><span class="footer-badge-num" data-counter="true">10+</span> <span data-t="badge1Sub">years in building management</span></span>
+        <span class="footer-stat-sep" aria-hidden="true">/</span>
+        <span class="footer-stat"><span class="footer-badge-num" data-counter="true">500+</span> <span data-t="badge2Sub">residential buildings in Europe</span></span>
       </div>
       <a href="https://www.linkedin.com/company/odin-construction" class="footer-linkedin" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -1184,7 +1141,7 @@
         heroHeadline: 'Construction and engineering for buildings and infrastructure',
         heroSub: 'Based in Lisbon, delivering renovation, MEP, maintenance, and civil works across Portugal and selected EU projects.',
         heroCtaPrimary: 'Request a quote',
-        heroCtaSecondary: 'See projects',
+        heroCtaSecondary: 'See projects →',
         trustChip1: 'Residential & commercial',
         trustChip2: 'PT / EU delivery',
         trustChip3: '10+ years experience',
@@ -1241,8 +1198,8 @@
         footerCopy: '\u00a9 2026 Odin Construction. All rights reserved.',
         footerLegal: 'Lisbon, Portugal',
         footerLinkedin: 'LinkedIn',
-        badge1Sub: 'Years in building management',
-        badge2Sub: 'Residential buildings in Europe',
+        badge1Sub: 'years in building management',
+        badge2Sub: 'residential buildings in Europe',
         modalClose: 'Close'
       },
       pt: {
@@ -1256,7 +1213,7 @@
         heroHeadline: 'Constru\u00e7\u00e3o e engenharia para edif\u00edcios e infraestruturas',
         heroSub: 'Com base em Lisboa, executamos reabilita\u00e7\u00e3o, especialidades t\u00e9cnicas, manuten\u00e7\u00e3o e obras civis em Portugal e em projetos selecionados na UE.',
         heroCtaPrimary: 'Pedir or\u00e7amento',
-        heroCtaSecondary: 'Ver projetos',
+        heroCtaSecondary: 'Ver projetos →',
         trustChip1: 'Residencial e comercial',
         trustChip2: 'Entrega PT / UE',
         trustChip3: '10+ anos de experi\u00eancia',
@@ -1313,8 +1270,8 @@
         footerCopy: '\u00a9 2026 Odin Construction. Todos os direitos reservados.',
         footerLegal: 'Lisboa, Portugal',
         footerLinkedin: 'LinkedIn',
-        badge1Sub: 'Anos em gest\u00e3o de edif\u00edcios',
-        badge2Sub: 'Edif\u00edcios residenciais na Europa',
+        badge1Sub: 'anos em gest\u00e3o de edif\u00edcios',
+        badge2Sub: 'edif\u00edcios residenciais na Europa',
         modalClose: 'Fechar'
       }
     };
