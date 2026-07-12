@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odin Construction — Construction &amp; Engineering | Lisbon, Portugal</title>
+  <meta name="description" content="Construction and engineering for buildings and infrastructure. Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects. Based in Lisbon." />
+  <link rel="canonical" href="https://odinconstruction.co/" />
+  <link rel="alternate" hreflang="en" href="https://odinconstruction.co/?lang=en" />
+  <link rel="alternate" hreflang="pt-PT" href="https://odinconstruction.co/?lang=pt" />
+  <link rel="alternate" hreflang="x-default" href="https://odinconstruction.co/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Odin Construction — Construction &amp; Engineering" />
+  <meta property="og:description" content="Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects. Based in Lisbon." />
+  <meta property="og:url" content="https://odinconstruction.co/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Odin Construction — Construction &amp; Engineering" />
+  <meta name="twitter:description" content="Renovation, MEP, maintenance, and civil works across Portugal and selected EU projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lexend:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Odin Construction",
+    "url": "https://odinconstruction.co",
+    "logo": "https://odinconstruction.co/logo.png",
+    "email": "hi@odinconstruction.co",
+    "telephone": "+351913570069",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lisbon",
+      "addressCountry": "PT"
+    },
+    "areaServed": ["PT", "EU"],
+    "sameAs": ["https://www.linkedin.com/company/odin-construction"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+351-913-570-069",
+      "contactType": "sales",
+      "email": "hi@odinconstruction.co",
+      "availableLanguage": ["English", "Portuguese"]
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #131313;
+      --surface-2: #1a1a1a;
+      --text: #fafaf8;
+      --muted: #8f8b83;
+      --accent: #ff5a1f;
+      --accent-strong: #ff7a47;
+      --border: #262622;
+      --success: #5baa6c;
+      --error: #ff5c5c;
+
+      --radius-sm: 0px;
+      --radius-md: 0px;
+
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+      --space-9: 96px;
+
+      --max-width: 1280px;
+
+      --font-heading: 'Lexend', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-body: 'Source Sans 3', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+      --fs-hero: clamp(2.75rem, 6.4vw, 5.75rem);
+      --fs-h2: clamp(1.875rem, 3.6vw, 3rem);
+      --fs-h3: clamp(1.25rem, 2vw, 1.625rem);
+      --fs-body: 1rem;
+      --fs-small: 0.875rem;
+      --fs-label: 0.75rem;
+      --fs-button: 0.875rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      font-size: var(--fs-body);
+      line-height: 1.625;
+    }
+
+    h1, h2, h3, h4, h5, h6,
+    button,
+    .btn,
+    .logo-wordmark,
+    .nav-cta {
+      font-family: var(--font-heading);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--space-4);
+      z-index: 1000;
+      background: var(--accent);
+      color: var(--bg);
+      padding: var(--space-3) var(--space-5);
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      font-weight: 600;
+      text-decoration: none;
+      transition: top 0.15s ease;
+    }
+
+    .skip-link:focus { top: var(--space-4); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .rule { width: 100%; height: 1px; background: var(--border); }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--space-6);
+      height: 60px;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-mark { width: 12px; height: 12px; background: var(--accent); flex-shrink: 0; }
+
+    .logo-wordmark {
+      font-size: var(--fs-label);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-right { display: flex; align-items: center; gap: var(--space-5); flex-shrink: 0; }
+
+    .nav-links { display: flex; gap: var(--space-5); flex-wrap: nowrap; }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-links a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
+
+    .nav-cta {
+      font-size: var(--fs-label);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--accent);
+      text-decoration: none;
+      padding: var(--space-2) var(--space-4);
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      transition: background 0.15s ease;
+    }
+
+    .nav-cta:hover { background: var(--accent-strong); }
+
+    .lang { display: flex; gap: 10px; padding-left: var(--space-5); border-left: 1px solid var(--border); }
+
+    .lang button {
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-2);
+      min-width: 24px;
+      min-height: 24px;
+    }
+
+    .lang button.active { color: var(--accent); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: var(--space-2);
+      background: none;
+      border: none;
+      min-width: 36px;
+      min-height: 36px;
+      justify-content: center;
+    }
+
+    .hamburger span { display: block; width: 20px; height: 1px; background: var(--muted); }
+
+    /* HERO */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      min-height: min(86vh, 780px);
+    }
+
+    .hero-content {
+      padding: clamp(2rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-index {
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-5);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .hero-index::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-headline {
+      font-size: var(--fs-hero);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      max-width: 20ch;
+    }
+
+    .hero-sub {
+      margin-top: var(--space-6);
+      font-size: 1.0625rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 46ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-6);
+      margin-top: var(--space-7);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: var(--space-3) var(--space-6);
+      font-family: var(--font-heading);
+      font-size: var(--fs-button);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-primary { background: var(--accent); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-strong); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .link-underline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-heading);
+      font-size: var(--fs-button);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 4px;
+      transition: color 0.15s ease, border-color 0.15s ease, gap 0.15s ease;
+    }
+
+    .link-underline:hover { color: var(--accent); border-color: var(--accent); gap: var(--space-3); }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8);
+      list-style: none;
+      padding: 0;
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface-2);
+      min-height: 320px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(0.4) contrast(1.1) brightness(0.85);
+    }
+
+    .hero-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, var(--bg) 0%, rgba(10, 10, 10, 0) 22%),
+        linear-gradient(0deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0) 40%);
+    }
+
+    /* TRUST STRIP */
+    .trust-strip { padding: var(--space-6) 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .trust-strip-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
+
+    .trust-item { padding: 0 var(--space-5); border-left: 1px solid var(--border); }
+    .trust-item:first-child { border-left: none; padding-left: 0; }
+
+    .trust-item strong {
+      display: block;
+      font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-2);
+    }
+
+    .trust-item span {
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+    .section { padding: var(--space-9) 0; }
+
+    .section-label {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+      margin-bottom: var(--space-7);
+    }
+
+    .section-index {
+      font-family: var(--font-mono);
+      font-size: var(--fs-body);
+      color: var(--accent);
+    }
+
+    .section-label h2 {
+      font-size: var(--fs-label);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .section-intro {
+      font-size: var(--fs-h3);
+      color: var(--text);
+      max-width: 32ch;
+      margin-bottom: var(--space-7);
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    /* SERVICES */
+    .service-row {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      grid-template-areas: "index title" "index desc";
+      column-gap: var(--space-5);
+      row-gap: var(--space-2);
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--border);
+      transition: padding-left 0.2s ease, background-color 0.2s ease;
+    }
+
+    .service-row:last-child { border-bottom: 1px solid var(--border); }
+    .service-row:hover { padding-left: var(--space-4); background: var(--surface); }
+
+    .service-index { grid-area: index; font-family: var(--font-mono); color: var(--accent); font-size: var(--fs-body); }
+    .service-title { grid-area: title; font-size: var(--fs-h3); font-weight: 600; color: var(--text); }
+    .service-desc { grid-area: desc; color: var(--muted); line-height: 1.65; max-width: 56ch; }
+
+    /* PROJECTS */
+    .projects-bento {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .project-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      min-height: 320px;
+    }
+
+    .project-item.featured { grid-column: span 2; min-height: 460px; }
+
+    .project-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+      display: block;
+    }
+
+    .project-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(0.3) contrast(1.05);
+      transition: transform 0.4s ease, filter 0.3s ease;
+    }
+
+    .project-cover:hover img { transform: scale(1.04); filter: grayscale(0) contrast(1.08); }
+
+    .project-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0) 35%, rgba(10, 10, 10, 0.9) 100%);
+      pointer-events: none;
+    }
+
+    .project-index {
+      position: absolute;
+      top: var(--space-4);
+      left: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      color: var(--text);
+      background: rgba(10, 10, 10, 0.7);
+      padding: 4px 10px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gallery-badge {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+      background: rgba(10, 10, 10, 0.7);
+      padding: 4px 10px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .project-overlay-info {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: var(--space-5);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .project-name {
+      font-size: clamp(1.25rem, 2.6vw, 1.875rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: var(--space-2);
+    }
+
+    .project-meta {
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-3);
+    }
+
+    .project-desc {
+      font-size: var(--fs-small);
+      color: var(--text);
+      opacity: 0.85;
+      line-height: 1.55;
+      max-width: 48ch;
+    }
+
+    .featured .project-desc { max-width: 60ch; font-size: var(--fs-body); }
+
+    /* WHY US */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
+
+    .about-text { font-size: var(--fs-h3); color: var(--text); line-height: 1.5; max-width: 42ch; font-weight: 400; }
+
+    .process-list { list-style: none; }
+
+    .process-list li {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: var(--space-4);
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .process-list li:first-child { border-top: none; padding-top: 0; }
+
+    .process-index { font-family: var(--font-mono); color: var(--accent); font-size: var(--fs-small); }
+
+    .process-list strong { display: block; color: var(--text); font-weight: 600; margin-bottom: var(--space-2); }
+    .process-list span { color: var(--muted); line-height: 1.6; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+
+    .contact-intro { font-size: var(--fs-h3); color: var(--text); line-height: 1.4; margin-bottom: var(--space-4); max-width: 28ch; font-weight: 400; }
+
+    .contact-note { font-size: var(--fs-small); color: var(--muted); line-height: 1.65; margin-bottom: var(--space-7); }
+
+    .contact-details { display: flex; flex-direction: column; }
+
+    .contact-detail {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-3);
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-detail:first-child { border-top: none; padding-top: 0; }
+
+    .contact-detail strong {
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 140px;
+    }
+
+    .contact-detail a {
+      font-size: var(--fs-h3);
+      color: var(--text);
+      text-decoration: none;
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.15s ease;
+    }
+
+    .contact-detail a:hover { color: var(--accent); }
+
+    .form { display: flex; flex-direction: column; gap: var(--space-5); min-width: 0; }
+
+    .form-note { font-family: var(--font-mono); font-size: var(--fs-label); color: var(--muted); }
+
+    .form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+
+    .form-field label {
+      font-family: var(--font-mono);
+      font-size: var(--fs-label);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-3) 0;
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      color: var(--text);
+      outline: none;
+      width: 100%;
+      resize: vertical;
+      min-height: 44px;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus { border-bottom-color: var(--accent); }
+
+    .form-field textarea { min-height: 110px; }
+
+    .field-hint { font-size: var(--fs-small); color: var(--muted); line-height: 1.5; }
+
+    .form-btn { margin-top: var(--space-3); align-self: flex-start; }
+    .form-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .privacy-note { font-size: var(--fs-small); color: var(--muted); line-height: 1.5; }
+    .privacy-note a { color: var(--accent); }
+
+    .form-status { font-size: var(--fs-small); color: var(--error); min-height: 1.25em; }
+
+    .form-success { padding: var(--space-6) 0; }
+    .form-success-title { font-size: var(--fs-h3); font-weight: 600; color: var(--text); margin-bottom: var(--space-2); }
+    .form-success-sub { font-size: var(--fs-body); color: var(--muted); }
+
+    /* GALLERY MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.94);
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-5);
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal { position: relative; max-width: 1000px; width: 100%; }
+
+    .modal img { width: 100%; height: auto; max-height: 80vh; object-fit: contain; display: block; }
+
+    .modal-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: var(--fs-small);
+      cursor: pointer;
+      padding: var(--space-2);
+      min-width: 44px;
+      min-height: 44px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(10, 10, 10, 0.8);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: pointer;
+      padding: var(--space-3);
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-nav.prev { left: var(--space-3); }
+    .modal-nav.next { right: var(--space-3); }
+    .modal-nav svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+
+    .modal-counter { text-align: center; margin-top: var(--space-3); font-family: var(--font-mono); font-size: var(--fs-small); color: var(--muted); }
+
+    /* FOOTER */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      padding: var(--space-5) var(--space-6);
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+    }
+
+    .footer-left { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+
+    .footer-copy { font-size: var(--fs-label); color: var(--muted); }
+    .footer-legal { font-size: var(--fs-label); color: var(--muted); }
+
+    .footer-right { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+
+    .footer-stats {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+      font-size: var(--fs-label);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .footer-badge-num { color: var(--text); font-weight: 600; }
+    .footer-stat-sep { color: var(--border); }
+
+    .footer-linkedin {
+      font-size: var(--fs-label);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-decoration: none;
+      min-height: 24px;
+    }
+
+    .footer-linkedin:hover { color: var(--text); }
+    .footer-linkedin svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* RESPONSIVE */
+    @media (min-width: 769px) {
+      .service-row { grid-template-columns: 72px 320px 1fr; grid-template-areas: "index title desc"; align-items: start; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 var(--space-4); }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: var(--space-5) var(--space-4);
+        gap: var(--space-4);
+        z-index: 100;
+      }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .lang { padding-left: var(--space-4); }
+      .container { padding: 0 var(--space-4); }
+
+      .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+      .hero-content { padding: var(--space-6) var(--space-4) var(--space-7); }
+      .hero-media { min-height: 260px; order: 2; }
+      .hero-headline { max-width: none; }
+
+      .section { padding: var(--space-7) 0; }
+
+      .trust-strip-inner { grid-template-columns: repeat(2, 1fr); row-gap: var(--space-5); }
+      .trust-item { border-left: none; padding: 0; }
+      .trust-item:nth-child(even) { border-left: 1px solid var(--border); padding-left: var(--space-5); }
+      .trust-item:nth-child(n + 3) { border-top: 1px solid var(--border); padding-top: var(--space-5); }
+
+      .projects-bento { grid-template-columns: 1fr; }
+      .project-item.featured { grid-column: span 1; min-height: 320px; }
+
+      .why-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .contact-grid { grid-template-columns: 1fr; gap: var(--space-7); }
+      .footer { padding: var(--space-4); flex-direction: column; align-items: flex-start; }
+      .form-field input, .form-field textarea { font-size: 16px; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hamburger { display: none; }
+      .why-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+      .contact-grid { grid-template-columns: 1fr; gap: var(--space-7); }
+    }
+
+    @media (min-width: 1025px) { .hamburger { display: none; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link" data-t="skipLink">Skip to main content</a>
+
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#" class="logo" aria-label="Odin Construction home">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <div class="logo-wordmark">Odin Construction</div>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links" id="nav-links">
+          <a href="#services" data-t="navServices">Services</a>
+          <a href="#projects" data-t="navProjects">Projects</a>
+          <a href="#about" data-t="navAbout">About</a>
+          <a href="#contact" data-t="navContact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-cta" data-t="navCta" data-event="cta_primary_click">Request a quote</a>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+        </div>
+        <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="hero-index" data-t="heroEyebrow">Lisbon-based contractor</p>
+          <h1 class="hero-headline" id="hero-title" data-t="heroHeadline">Construction and engineering for buildings and infrastructure</h1>
+          <p class="hero-sub" data-t="heroSub">Based in Lisbon, delivering renovation, MEP, maintenance, and civil works across Portugal and selected EU projects.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary" data-t="heroCtaPrimary" data-event="cta_primary_click">Request a quote</a>
+            <a href="#projects" class="link-underline" data-t="heroCtaSecondary" data-event="cta_secondary_click">See projects →</a>
+          </div>
+          <ul class="hero-tags" aria-label="Company highlights">
+            <li data-t="trustChip1">Residential &amp; commercial</li>
+            <li data-t="trustChip2">PT / EU delivery</li>
+            <li data-t="trustChip3">10+ years experience</li>
+            <li data-t="trustChip4">Fast response</li>
+          </ul>
+        </div>
+        <div class="hero-media">
+          <img src="https://i.ibb.co/N6Vp7DHn/1.jpg" alt="Engineering site work — trench and district heating pipe installation" width="960" height="960" />
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip" aria-label="Trust indicators">
+      <div class="container">
+        <div class="trust-strip-inner">
+          <div class="trust-item">
+            <strong data-t="trustStrip1Title" data-counter="true">10+</strong>
+            <span data-t="trustStrip1Sub">Years of hands-on experience in Europe</span>
+          </div>
+          <div class="trust-item">
+            <strong data-t="trustStrip2Title" data-counter="true">500+</strong>
+            <span data-t="trustStrip2Sub">Residential buildings serviced across Europe</span>
+          </div>
+          <div class="trust-item">
+            <strong data-t="trustStrip3Title">Lisbon</strong>
+            <span data-t="trustStrip3Sub">Based in Portugal, delivering across the EU</span>
+          </div>
+          <div class="trust-item">
+            <strong data-t="trustStrip4Title" data-counter="true">1 day</strong>
+            <span data-t="trustStrip4Sub">Typical response time for enquiries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-label" id="services-title">
+          <span class="section-index" aria-hidden="true">01</span>
+          <h2><span data-t="labelServices">What we do</span></h2>
+        </div>
+        <div class="services-list">
+          <article class="service-row">
+            <span class="service-index" aria-hidden="true">01</span>
+            <h3 class="service-title" data-t="pillar1Title">Renovation and fit-out</h3>
+            <p class="service-desc" data-t="pillar1Desc">Building renovation and fit-out for residential and commercial interiors, from technical preparation to final finishes.</p>
+          </article>
+          <article class="service-row">
+            <span class="service-index" aria-hidden="true">02</span>
+            <h3 class="service-title" data-t="pillar2Title">MEP and maintenance</h3>
+            <p class="service-desc" data-t="pillar2Desc">Electrical works, plumbing, repairs, and day-to-day upkeep for residential buildings and commercial facilities.</p>
+          </article>
+          <article class="service-row">
+            <span class="service-index" aria-hidden="true">03</span>
+            <h3 class="service-title" data-t="pillar3Title">Civil and infrastructure</h3>
+            <p class="service-desc" data-t="pillar3Desc">Road works, utility installations, drainage, and public infrastructure projects with coordinated site execution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-label" id="projects-title">
+          <span class="section-index" aria-hidden="true">02</span>
+          <h2><span data-t="labelProjects">Selected projects</span></h2>
+        </div>
+        <p class="section-intro" data-t="projectsIntro">Real delivery across industrial, utility, and commercial scopes in Portugal and Europe.</p>
+      </div>
+      <div class="projects-bento">
+
+        <article class="project-item featured">
+          <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/YBxVmbYd/img1.jpg","https://i.ibb.co/sSF9wVt/img2.jpg","https://i.ibb.co/HpC7b1V0/img3.jpg","https://i.ibb.co/Q3VNScTB/img4.jpg","https://i.ibb.co/23RX3Cp3/img0.jpg"]' data-event="gallery_open" aria-label="Open gallery: Modular Agricultural Units">
+            <img src="https://i.ibb.co/23RX3Cp3/img0.jpg" alt="Modular Agricultural Units exterior" width="1200" height="600" loading="lazy" />
+          </button>
+          <div class="project-scrim" aria-hidden="true"></div>
+          <span class="project-index" aria-hidden="true">01</span>
+          <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          <div class="project-overlay-info">
+            <h3 class="project-name" data-t="project1Name">Modular Agricultural Units</h3>
+            <p class="project-meta" data-t="project1Meta">Industrial construction · Germany · 2026</p>
+            <p class="project-desc" data-t="project1Desc">Full-scope fit-out of modular agricultural units including MEP systems, plumbing, and water infrastructure.</p>
+          </div>
+        </article>
+
+        <article class="project-item">
+          <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/N6Vp7DHn/1.jpg","https://i.ibb.co/RG1WV8gX/2.jpg","https://i.ibb.co/RTmrnbbf/3.jpg","https://i.ibb.co/VY5kTGvS/4.jpg","https://i.ibb.co/jZsNqFWN/5.jpg","https://i.ibb.co/vCRjL4hg/6.jpg"]' data-event="gallery_open" aria-label="Open gallery: District Heating Pipeline">
+            <img src="https://i.ibb.co/N6Vp7DHn/1.jpg" alt="District heating pipeline installation trench and pipeworks" width="960" height="540" loading="lazy" />
+          </button>
+          <div class="project-scrim" aria-hidden="true"></div>
+          <span class="project-index" aria-hidden="true">02</span>
+          <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          <div class="project-overlay-info">
+            <h3 class="project-name" data-t="project2Name">District Heating Pipeline</h3>
+            <p class="project-meta" data-t="project2Meta">Utility networks · Latvia · 2024</p>
+            <p class="project-desc" data-t="project2Desc">Installation support for district heating infrastructure with coordinated site execution and technical detailing.</p>
+          </div>
+        </article>
+
+        <article class="project-item">
+          <button type="button" class="project-cover" data-gallery='["https://i.ibb.co/m5QvtrsZ/8.jpg","https://i.ibb.co/Cs96G6Tc/9.jpg","https://i.ibb.co/KjK6gb6d/10.jpg","https://i.ibb.co/WWmMwRQk/11.jpg"]' data-event="gallery_open" aria-label="Open gallery: Self-Service Car Wash">
+            <img src="https://i.ibb.co/m5QvtrsZ/8.jpg" alt="Self-service car wash facility under construction" width="960" height="540" loading="lazy" />
+          </button>
+          <div class="project-scrim" aria-hidden="true"></div>
+          <span class="project-index" aria-hidden="true">03</span>
+          <span class="gallery-badge" data-t="galleryBadge">View gallery</span>
+          <div class="project-overlay-info">
+            <h3 class="project-name" data-t="project3Name">Self-Service Car Wash</h3>
+            <p class="project-meta" data-t="project3Meta">Commercial construction · Latvia · 2025</p>
+            <p class="project-desc" data-t="project3Desc">Ground-up commercial build of a self-service car wash with structural works and utility connections.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-label" id="about-title">
+          <span class="section-index" aria-hidden="true">03</span>
+          <h2><span data-t="labelAbout">Why us</span></h2>
+        </div>
+        <div class="why-grid">
+          <div>
+            <p class="about-text" data-t="aboutText">Odin Construction is a Portuguese construction company based in Lisbon. Our team's expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.</p>
+          </div>
+          <div>
+            <ul class="process-list">
+              <li>
+                <span class="process-index" aria-hidden="true">01</span>
+                <div>
+                  <strong data-t="process1Title">Licensed. Site-ready.</strong>
+                  <span data-t="process1Desc">Delivery-focused execution with clear scope, timeline, and communication from enquiry to handover.</span>
+                </div>
+              </li>
+              <li>
+                <span class="process-index" aria-hidden="true">02</span>
+                <div>
+                  <strong data-t="process2Title">Scope to handover</strong>
+                  <span data-t="process2Desc">We coordinate structural, MEP, and finishing works under one accountable team.</span>
+                </div>
+              </li>
+              <li>
+                <span class="process-index" aria-hidden="true">03</span>
+                <div>
+                  <strong data-t="process3Title">Safety and compliance</strong>
+                  <span data-t="process3Desc">Site safety protocols and regulatory compliance built into every project phase.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-label" id="contact-title">
+          <span class="section-index" aria-hidden="true">04</span>
+          <h2><span data-t="labelContact">Request a quote</span></h2>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <p class="contact-intro" data-t="contactIntro">Send us your project scope and we'll reply with next steps.</p>
+            <p class="contact-note" data-t="contactNote">We respond within one business day. For urgent works, call us directly.</p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <strong data-t="contactPhoneLabel">Phone &amp; WhatsApp</strong>
+                <a href="tel:+351913570069" data-event="click_phone">+351 913 570 069</a>
+              </div>
+              <div class="contact-detail">
+                <strong data-t="contactEmailLabel">Email</strong>
+                <a href="mailto:hi@odinconstruction.co" data-event="click_email">hi@odinconstruction.co</a>
+              </div>
+            </div>
+          </div>
+          <div id="contact-form-wrap">
+            <form id="contact-form" onsubmit="submitForm(event)" novalidate>
+              <input type="hidden" name="access_key" value="93e63b60-0a9e-4133-9324-ed5bc734fd39" />
+              <input type="hidden" name="subject" value="New enquiry from odinconstruction.co" />
+              <input type="hidden" name="from_name" value="Odin Construction Website" />
+              <input type="text" name="botcheck" tabindex="-1" autocomplete="off" hidden aria-hidden="true" />
+              <div class="form">
+                <p class="form-note" id="form-note" data-t="formNote">Fields marked with * are required.</p>
+                <div class="form-field">
+                  <label for="name"><span data-t="formName">Name</span> <span aria-hidden="true">*</span></label>
+                  <input id="name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div class="form-field">
+                  <label for="email"><span data-t="formEmail">Email</span> <span aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div class="form-field">
+                  <label for="message"><span data-t="formMessage">Project details</span> <span aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" rows="6" required aria-describedby="message-help"></textarea>
+                  <p class="field-hint" id="message-help" data-t="formMessageHelp">Include work type, location, and desired timeline.</p>
+                </div>
+                <button type="submit" class="btn btn-primary form-btn" id="form-submit" data-t="formBtn" data-event="form_submit">Send request</button>
+                <p class="privacy-note" data-t="privacyNote">We use your information only to respond to your enquiry.</p>
+                <div class="form-status" id="form-status" role="alert" aria-live="assertive"></div>
+              </div>
+            </form>
+            <div id="form-success" class="form-success" hidden>
+              <p class="form-success-title" data-t="successTitle">Message sent.</p>
+              <p class="form-success-sub" data-t="successSub">We will be in touch within one business day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <p class="footer-copy" data-t="footerCopy">© 2026 Odin Construction. All rights reserved.</p>
+      <p class="footer-legal" data-t="footerLegal">Lisbon, Portugal</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-stats">
+        <span class="footer-stat"><span class="footer-badge-num" data-counter="true">10+</span> <span data-t="badge1Sub">years in building management</span></span>
+        <span class="footer-stat-sep" aria-hidden="true">/</span>
+        <span class="footer-stat"><span class="footer-badge-num" data-counter="true">500+</span> <span data-t="badge2Sub">residential buildings in Europe</span></span>
+      </div>
+      <a href="https://www.linkedin.com/company/odin-construction" class="footer-linkedin" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <span data-t="footerLinkedin">LinkedIn</span>
+      </a>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="gallery-modal" role="dialog" aria-modal="true" aria-label="Project gallery" hidden>
+    <div class="modal">
+      <button type="button" class="modal-close" id="modal-close" data-t="modalClose">Close</button>
+      <img id="modal-image" src="" alt="" />
+      <button type="button" class="modal-nav prev" id="modal-prev" aria-label="Previous image" data-event="gallery_prev">
+        <svg viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15"/></svg>
+      </button>
+      <button type="button" class="modal-nav next" id="modal-next" aria-label="Next image" data-event="gallery_next">
+        <svg viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15"/></svg>
+      </button>
+      <p class="modal-counter" id="modal-counter" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <script>
+    var translations = {
+      en: {
+        skipLink: 'Skip to main content',
+        navServices: 'Services',
+        navAbout: 'About',
+        navProjects: 'Projects',
+        navContact: 'Contact',
+        navCta: 'Request a quote',
+        heroEyebrow: 'Lisbon-based contractor',
+        heroHeadline: 'Construction and engineering for buildings and infrastructure',
+        heroSub: 'Based in Lisbon, delivering renovation, MEP, maintenance, and civil works across Portugal and selected EU projects.',
+        heroCtaPrimary: 'Request a quote',
+        heroCtaSecondary: 'See projects →',
+        trustChip1: 'Residential & commercial',
+        trustChip2: 'PT / EU delivery',
+        trustChip3: '10+ years experience',
+        trustChip4: 'Fast response',
+        trustStrip1Title: '10+',
+        trustStrip1Sub: 'Years of hands-on experience in Europe',
+        trustStrip2Title: '500+',
+        trustStrip2Sub: 'Residential buildings serviced across Europe',
+        trustStrip3Title: 'Lisbon',
+        trustStrip3Sub: 'Based in Portugal, delivering across the EU',
+        trustStrip4Title: '1 day',
+        trustStrip4Sub: 'Typical response time for enquiries',
+        labelServices: 'What we do',
+        pillar1Title: 'Renovation and fit-out',
+        pillar1Desc: 'Building renovation and fit-out for residential and commercial interiors, from technical preparation to final finishes.',
+        pillar2Title: 'MEP and maintenance',
+        pillar2Desc: 'Electrical works, plumbing, repairs, and day-to-day upkeep for residential buildings and commercial facilities.',
+        pillar3Title: 'Civil and infrastructure',
+        pillar3Desc: 'Road works, utility installations, drainage, and public infrastructure projects with coordinated site execution.',
+        labelProjects: 'Selected projects',
+        projectsIntro: 'Real delivery across industrial, utility, and commercial scopes in Portugal and Europe.',
+        galleryBadge: 'View gallery',
+        project1Name: 'Modular Agricultural Units',
+        project1Meta: 'Industrial construction · Germany · 2026',
+        project1Desc: 'Full-scope fit-out of modular agricultural units including MEP systems, plumbing, and water infrastructure.',
+        project2Name: 'District Heating Pipeline',
+        project2Meta: 'Utility networks · Latvia · 2024',
+        project2Desc: 'Installation support for district heating infrastructure with coordinated site execution and technical detailing.',
+        project3Name: 'Self-Service Car Wash',
+        project3Meta: 'Commercial construction · Latvia · 2025',
+        project3Desc: 'Ground-up commercial build of a self-service car wash with structural works and utility connections.',
+        labelAbout: 'Why us',
+        aboutText: 'Odin Construction is a Portuguese construction company based in Lisbon. Our team\'s expertise spans engineering, electrical works, plumbing, and construction management, with over ten years of hands-on experience in Europe. We work with private clients, developers, and public entities who value precision and reliability.',
+        process1Title: 'Licensed. Site-ready.',
+        process1Desc: 'Delivery-focused execution with clear scope, timeline, and communication from enquiry to handover.',
+        process2Title: 'Scope to handover',
+        process2Desc: 'We coordinate structural, MEP, and finishing works under one accountable team.',
+        process3Title: 'Safety and compliance',
+        process3Desc: 'Site safety protocols and regulatory compliance built into every project phase.',
+        labelContact: 'Request a quote',
+        contactIntro: 'Send us your project scope and we\'ll reply with next steps.',
+        contactNote: 'We respond within one business day. For urgent works, call us directly.',
+        contactPhoneLabel: 'Phone & WhatsApp',
+        contactEmailLabel: 'Email',
+        formNote: 'Fields marked with * are required.',
+        formName: 'Name',
+        formEmail: 'Email',
+        formMessage: 'Project details',
+        formMessageHelp: 'Include work type, location, and desired timeline.',
+        formBtn: 'Send request',
+        privacyNote: 'We use your information only to respond to your enquiry.',
+        successTitle: 'Message sent.',
+        successSub: 'We will be in touch within one business day.',
+        footerCopy: '\u00a9 2026 Odin Construction. All rights reserved.',
+        footerLegal: 'Lisbon, Portugal',
+        footerLinkedin: 'LinkedIn',
+        badge1Sub: 'years in building management',
+        badge2Sub: 'residential buildings in Europe',
+        modalClose: 'Close'
+      },
+      pt: {
+        skipLink: 'Ir para o conte\u00fado principal',
+        navServices: 'Servi\u00e7os',
+        navAbout: 'Sobre',
+        navProjects: 'Projetos',
+        navContact: 'Contacto',
+        navCta: 'Pedir or\u00e7amento',
+        heroEyebrow: 'Empreiteiro em Lisboa',
+        heroHeadline: 'Constru\u00e7\u00e3o e engenharia para edif\u00edcios e infraestruturas',
+        heroSub: 'Com base em Lisboa, executamos reabilita\u00e7\u00e3o, especialidades t\u00e9cnicas, manuten\u00e7\u00e3o e obras civis em Portugal e em projetos selecionados na UE.',
+        heroCtaPrimary: 'Pedir or\u00e7amento',
+        heroCtaSecondary: 'Ver projetos →',
+        trustChip1: 'Residencial e comercial',
+        trustChip2: 'Entrega PT / UE',
+        trustChip3: '10+ anos de experi\u00eancia',
+        trustChip4: 'Resposta r\u00e1pida',
+        trustStrip1Title: '10+',
+        trustStrip1Sub: 'Anos de experi\u00eancia pr\u00e1tica na Europa',
+        trustStrip2Title: '500+',
+        trustStrip2Sub: 'Edif\u00edcios residenciais em toda a Europa',
+        trustStrip3Title: 'Lisboa',
+        trustStrip3Sub: 'Com base em Portugal, com entregas na UE',
+        trustStrip4Title: '1 dia',
+        trustStrip4Sub: 'Tempo t\u00edpico de resposta a pedidos',
+        labelServices: 'O que fazemos',
+        pillar1Title: 'Reabilita\u00e7\u00e3o e fit-out',
+        pillar1Desc: 'Da obra estrutural aos acabamentos finais em espa\u00e7os residenciais e comerciais.',
+        pillar2Title: 'Especialidades t\u00e9cnicas e manuten\u00e7\u00e3o',
+        pillar2Desc: 'Instala\u00e7\u00f5es el\u00e9tricas, canaliza\u00e7\u00f5es, repara\u00e7\u00f5es e manuten\u00e7\u00e3o quotidiana de edif\u00edcios e instala\u00e7\u00f5es.',
+        pillar3Title: 'Obras civis e infraestruturas',
+        pillar3Desc: 'Obras rodovi\u00e1rias, instala\u00e7\u00f5es de utilidades, drenagem e projetos de infraestrutura p\u00fablica.',
+        labelProjects: 'Projetos selecionados',
+        projectsIntro: 'Entregas reais em \u00e2mbitos industriais, de utilidades p\u00fablicas e comerciais em Portugal e na Europa.',
+        galleryBadge: 'Ver galeria',
+        project1Name: 'Unidades Agr\u00edcolas Modulares',
+        project1Meta: 'Constru\u00e7\u00e3o industrial \u00b7 Alemanha \u00b7 2026',
+        project1Desc: 'Fit-out completo de unidades agr\u00edcolas modulares, incluindo sistemas MEP, canaliza\u00e7\u00f5es e infraestrutura h\u00eddrica.',
+        project2Name: 'Rede de Aquecimento Urbano',
+        project2Meta: 'Redes de utilidade p\u00fablica \u00b7 Let\u00f3nia \u00b7 2024',
+        project2Desc: 'Apoio \u00e0 instala\u00e7\u00e3o de infraestrutura de aquecimento urbano com execu\u00e7\u00e3o coordenada em obra.',
+        project3Name: 'Lavagem Autom\u00f3vel Self-Service',
+        project3Meta: 'Constru\u00e7\u00e3o comercial \u00b7 Let\u00f3nia \u00b7 2025',
+        project3Desc: 'Constru\u00e7\u00e3o comercial de lavagem autom\u00f3vel self-service com obras estruturais e liga\u00e7\u00f5es de utilidades.',
+        labelAbout: 'Porqu\u00ea n\u00f3s',
+        aboutText: 'A Odin Construction \u00e9 uma empresa portuguesa de constru\u00e7\u00e3o com sede em Lisboa. A experi\u00eancia da nossa equipa abrange engenharia, instala\u00e7\u00f5es el\u00e9tricas, canaliza\u00e7\u00f5es e gest\u00e3o de obras, com mais de dez anos de experi\u00eancia na Europa. Trabalhamos com clientes privados, promotores e entidades p\u00fablicas que valorizam a precis\u00e3o e a fiabilidade.',
+        process1Title: 'Licenciados. Prontos para obra.',
+        process1Desc: 'Execu\u00e7\u00e3o focada na entrega com \u00e2mbito, prazo e comunica\u00e7\u00e3o claros desde o pedido at\u00e9 \u00e0 entrega.',
+        process2Title: '\u00c2mbito \u00e0 entrega',
+        process2Desc: 'Coordenamos obras estruturais, especialidades t\u00e9cnicas e acabamentos numa \u00fanica equipa respons\u00e1vel.',
+        process3Title: 'Seguran\u00e7a e conformidade',
+        process3Desc: 'Protocolos de seguran\u00e7a em obra e conformidade regulat\u00f3ria em todas as fases do projeto.',
+        labelContact: 'Pedir or\u00e7amento',
+        contactIntro: 'Envie-nos o \u00e2mbito do seu projeto e responderemos com os pr\u00f3ximos passos.',
+        contactNote: 'Respondemos no prazo de um dia \u00fatil. Para trabalhos urgentes, contacte-nos diretamente.',
+        contactPhoneLabel: 'Telefone & WhatsApp',
+        contactEmailLabel: 'Email',
+        formNote: 'Os campos marcados com * s\u00e3o obrigat\u00f3rios.',
+        formName: 'Nome',
+        formEmail: 'Email',
+        formMessage: 'Detalhes do projeto',
+        formMessageHelp: 'Inclua o tipo de obra, localiza\u00e7\u00e3o e prazo pretendido.',
+        formBtn: 'Enviar pedido',
+        privacyNote: 'Utilizamos os seus dados apenas para responder ao seu pedido.',
+        successTitle: 'Mensagem enviada.',
+        successSub: 'Entraremos em contacto no prazo de um dia \u00fatil.',
+        footerCopy: '\u00a9 2026 Odin Construction. Todos os direitos reservados.',
+        footerLegal: 'Lisboa, Portugal',
+        footerLinkedin: 'LinkedIn',
+        badge1Sub: 'anos em gest\u00e3o de edif\u00edcios',
+        badge2Sub: 'edif\u00edcios residenciais na Europa',
+        modalClose: 'Fechar'
+      }
+    };
+
+    var currentLang = 'en';
+    var formStarted = false;
+    var galleryImages = [];
+    var galleryIndex = 0;
+
+    function trackEvent(name) {
+      if (typeof gtag === 'function') {
+        gtag('event', name);
+      }
+    }
+
+    function applyTranslations(lang) {
+      currentLang = lang;
+      var t = translations[lang];
+
+      document.querySelectorAll('[data-t]').forEach(function(el) {
+        var key = el.getAttribute('data-t');
+        if (t[key] !== undefined) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+          el.innerHTML = t[key];
+        }
+      });
+
+      document.querySelectorAll('.lang button').forEach(function(btn) {
+        var isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
+      document.title = lang === 'pt'
+        ? 'Odin Construction \u2014 Constru\u00e7\u00e3o e Engenharia | Lisboa, Portugal'
+        : 'Odin Construction \u2014 Construction & Engineering | Lisbon, Portugal';
+
+      var url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState(null, '', url.toString());
+    }
+
+    function initLang() {
+      var params = new URLSearchParams(window.location.search);
+      var lang = params.get('lang');
+      if (lang === 'pt' || lang === 'en') {
+        applyTranslations(lang);
+      }
+    }
+
+    document.querySelectorAll('.lang button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        applyTranslations(btn.dataset.lang);
+        trackEvent('language_toggle');
+      });
+    });
+
+    document.getElementById('hamburger').addEventListener('click', function() {
+      var links = document.getElementById('nav-links');
+      var isOpen = links.classList.toggle('open');
+      this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('#nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-links').classList.remove('open');
+        document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelectorAll('[data-event]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        trackEvent(el.getAttribute('data-event'));
+      });
+    });
+
+    var formFields = document.querySelectorAll('#contact-form input, #contact-form textarea');
+    formFields.forEach(function(field) {
+      field.addEventListener('focus', function() {
+        if (!formStarted) {
+          formStarted = true;
+          trackEvent('form_start');
+        }
+      });
+    });
+
+    function submitForm(e) {
+      e.preventDefault();
+      var form = document.getElementById('contact-form');
+      var btn = document.getElementById('form-submit');
+      var status = document.getElementById('form-status');
+      var lang = currentLang;
+
+      status.textContent = '';
+
+      if (!form.checkValidity()) {
+        status.textContent = lang === 'pt' ? 'Por favor preencha todos os campos obrigat\u00f3rios.' : 'Please complete all required fields.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = lang === 'pt' ? 'A enviar...' : 'Sending...';
+
+      var data = new FormData(form);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(res) {
+        if (res.success) {
+          form.hidden = true;
+          document.getElementById('form-success').hidden = false;
+          trackEvent('generate_lead');
+        } else {
+          btn.disabled = false;
+          btn.textContent = translations[lang].formBtn;
+          status.textContent = lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.';
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = translations[lang].formBtn;
+        status.textContent = lang === 'pt' ? 'Ocorreu um erro. Por favor tente novamente.' : 'Something went wrong. Please try again.';
+      });
+    }
+
+    var modal = document.getElementById('gallery-modal');
+    var modalImg = document.getElementById('modal-image');
+    var modalCounter = document.getElementById('modal-counter');
+
+    function updateModalImage() {
+      modalImg.src = galleryImages[galleryIndex];
+      modalImg.alt = 'Project image ' + (galleryIndex + 1) + ' of ' + galleryImages.length;
+      modalCounter.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
+    }
+
+    function openGallery(images) {
+      galleryImages = images;
+      galleryIndex = 0;
+      updateModalImage();
+      modal.hidden = false;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modal-close').focus();
+    }
+
+    function closeGallery() {
+      modal.hidden = true;
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-gallery]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var images = JSON.parse(btn.getAttribute('data-gallery'));
+        openGallery(images);
+      });
+    });
+
+    document.getElementById('modal-close').addEventListener('click', closeGallery);
+
+    document.getElementById('modal-prev').addEventListener('click', function() {
+      galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateModalImage();
+      trackEvent('gallery_next');
+    });
+
+    document.getElementById('modal-next').addEventListener('click', function() {
+      galleryIndex = (galleryIndex + 1) % galleryImages.length;
+      updateModalImage();
+      trackEvent('gallery_next');
+    });
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeGallery();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') closeGallery();
+      if (e.key === 'ArrowLeft') document.getElementById('modal-prev').click();
+      if (e.key === 'ArrowRight') document.getElementById('modal-next').click();
+    });
+
+    function animateCounter(el) {
+      var text = el.textContent.trim();
+      var match = text.match(/^(\d+)(.*)$/);
+      if (!match) return;
+      var target = parseInt(match[1], 10);
+      var suffix = match[2];
+      var duration = 900;
+      var startTime = null;
+
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+      var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      document.querySelectorAll('[data-counter]').forEach(function(el) {
+        counterObserver.observe(el);
+      });
+    }
+
+    initLang();
+  </script>
+
+</body>
+</html>
